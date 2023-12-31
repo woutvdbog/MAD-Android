@@ -16,7 +16,8 @@ import com.example.mad_android.model.Station
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -37,10 +38,18 @@ class StationViewModel(
     private var _uiState : StationUiState by mutableStateOf(StationUiState.Loading)
         private set
 
-    private val _stations = MutableStateFlow<List<Station>>(emptyList())
-    val stations : StateFlow<List<Station>> get() = _stations
 
     lateinit var uiListState : StateFlow<StationState>
+
+    private val _searchText = MutableStateFlow("")
+    val searchText = _searchText.asStateFlow()
+
+    private val _isSearching = MutableStateFlow(false)
+    val isSearching = _isSearching.asStateFlow()
+
+    fun onSeachTextChange(text: String) {
+        _searchText.value = text
+    }
 
     init {
         getStations()
@@ -50,8 +59,26 @@ class StationViewModel(
         try {
             viewModelScope.launch { stationRepository.refresh() }
 
-            uiListState = stationRepository.getStations().map {
-                StationState(it)
+//            uiListState = stationRepository.getStations().map {
+//                StationState(it)
+//            }.stateIn(
+//                scope = viewModelScope,
+//                started = SharingStarted.WhileSubscribed(5_000L),
+//                initialValue = StationState()
+//            )
+
+            uiListState = combine(
+                stationRepository.getStations(),
+                searchText
+            ) { stationList, query ->
+                val filteredStations = if (query.isEmpty()) {
+                    stationList.station
+                } else {
+                    stationList.station.filter {
+                        it.name.contains(query, ignoreCase = true)
+                    }
+                }
+                StationState(Station("", "", filteredStations))
             }.stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000L),

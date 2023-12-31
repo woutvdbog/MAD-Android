@@ -1,17 +1,16 @@
 package com.example.mad_android.ui.screens
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -25,6 +24,9 @@ fun StationsScreen(
 ) {
     val stationListState = stationViewModel.uiListState.collectAsState()
 
+    val searchText = stationViewModel.searchText.collectAsState()
+    val isSearching = stationViewModel.isSearching.collectAsState()
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -32,18 +34,33 @@ fun StationsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .wrapContentSize(Alignment.Center)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            TextField(
+                value = searchText.value,
+                onValueChange = { stationViewModel.onSeachTextChange(it) },
+                label = { Text(text = "Search") },
+                maxLines = 1,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(4.dp)
+            )
             val lazyListState = rememberLazyListState()
-            Text(text = stationListState.value.station.version)
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(text = "test2")
+            LazyColumn(state = lazyListState) {
+                items(stationListState.value.station.station.size) { index ->
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(4.dp)
+                    ) {
+                        Text(
+                            text = stationListState.value.station.station[index].name,
+                            modifier = Modifier.padding(16.dp)
+                        )
+
+                    }
+                }
             }
         }
     }

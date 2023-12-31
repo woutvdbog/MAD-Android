@@ -20,7 +20,6 @@ class CachingStationRepository (
     context: Context
 ) : StationRepository {
     override fun getStations(): Flow<Station> {
-        // convert single dbStation to list of Stations
         return stationDao.getAll().map {
             it?.asDomainStation() ?: Station("0", "0", emptyList())
         }.onEach {
