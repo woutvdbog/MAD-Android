@@ -1,4 +1,4 @@
-package com.example.mad_android.ui.screens
+package com.example.mad_android.ui.screens.stations
 
 import android.util.Log
 import androidx.compose.runtime.getValue
@@ -58,15 +58,6 @@ class StationViewModel(
     private fun getStations() {
         try {
             viewModelScope.launch { stationRepository.refresh() }
-
-//            uiListState = stationRepository.getStations().map {
-//                StationState(it)
-//            }.stateIn(
-//                scope = viewModelScope,
-//                started = SharingStarted.WhileSubscribed(5_000L),
-//                initialValue = StationState()
-//            )
-
             uiListState = combine(
                 stationRepository.getStations(),
                 searchText
@@ -75,7 +66,7 @@ class StationViewModel(
                     stationList.station
                 } else {
                     stationList.station.filter {
-                        it.name.contains(query, ignoreCase = true)
+                        it.standardname.contains(query, ignoreCase = true) || it.name.contains(query, ignoreCase = true)
                     }
                 }
                 StationState(Station("", "", filteredStations))

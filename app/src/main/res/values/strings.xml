@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MAD-Android</string>
     <string name="roll">Roll</string>
+    <string name="google_maps_key">AIzaSyAi9ZZyOhh-PgBYyeF0VP98kPXM4BQWro0</string>
 </resources>

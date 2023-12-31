@@ -68,6 +68,10 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
+    implementation("com.google.maps.android:maps-compose:4.3.0")
+    implementation("com.google.maps.android:maps-compose-utils:4.3.0")
+    implementation("com.google.maps.android:maps-compose-widgets:4.3.0")
+
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")

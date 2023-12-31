@@ -1,4 +1,4 @@
-package com.example.mad_android.ui.screens
+package com.example.mad_android.ui.screens.stations
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,10 +16,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.screens.stations.components.StationCard
 
 @Composable
 fun StationsScreen(
-    stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory)
+    stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory),
+    onStationSelected : (String) -> Unit
 ) {
     val stationListState = stationViewModel.uiListState.collectAsState()
 
@@ -49,17 +50,10 @@ fun StationsScreen(
             val lazyListState = rememberLazyListState()
             LazyColumn(state = lazyListState) {
                 items(stationListState.value.station.station.size) { index ->
-                    Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(4.dp)
-                    ) {
-                        Text(
-                            text = stationListState.value.station.station[index].name,
-                            modifier = Modifier.padding(16.dp)
-                        )
-
-                    }
+                    StationCard(
+                        station = stationListState.value.station.station[index],
+                        onStationSelected = onStationSelected
+                    )
                 }
             }
         }
