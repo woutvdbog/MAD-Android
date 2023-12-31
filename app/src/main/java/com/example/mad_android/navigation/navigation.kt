@@ -30,7 +30,8 @@ fun navComponent(
             val station = backStackEntry.arguments?.getString("station")
             ScheduleScreen(
                 station = station,
-                modifier = Modifier)
+                modifier = Modifier,
+                navController = navController)
         }
     }
 }
