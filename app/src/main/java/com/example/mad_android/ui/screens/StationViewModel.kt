@@ -29,7 +29,7 @@ sealed interface StationUiState {
     object Loading : StationUiState
 }
 
-data class StationState(val station: Station = Station("",""))
+data class StationState(val station: Station = Station("","", emptyList()))
 
 class StationViewModel(
     private val stationRepository: StationRepository
