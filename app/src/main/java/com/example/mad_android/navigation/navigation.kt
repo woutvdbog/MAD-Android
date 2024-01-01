@@ -2,9 +2,11 @@ package com.example.mad_android.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.mad_android.ui.screens.schedule.LiveboardViewModel
 import com.example.mad_android.ui.screens.schedule.ScheduleScreen
 import com.example.mad_android.ui.screens.stations.StationsScreen
 
@@ -13,6 +15,8 @@ fun navComponent(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    val liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory)
+
     NavHost(
         navController = navController,
         startDestination = StationScreen.Start.name,
@@ -31,7 +35,8 @@ fun navComponent(
             ScheduleScreen(
                 station = station,
                 modifier = Modifier,
-                navController = navController)
+                navController = navController,
+                liveboardViewModel = liveboardViewModel)
         }
     }
 }

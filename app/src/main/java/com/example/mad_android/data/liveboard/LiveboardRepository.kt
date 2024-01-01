@@ -21,14 +21,14 @@ class CachingLiveboardRepository(
 ) : LiveboardRepository {
     override fun getLiveboard(stationId: String): Flow<Liveboard> {
         return liveboardDao.getLiveboard().map {
-            Log.d("CachingStationRepository",  "getLiveboard: $it")
             it.asDomainLiveboard()
         }.onEach {
-            Log.d("CachingStationRepository",  "getLiveboard: $it")
+            Log.d("LiveboardRepository", "getLiveboard: $it")
         }
     }
 
     override suspend fun refresh(stationId: String) {
+        Log.d("probleem", "refresh: $stationId")
         liveboardApiService.getLiveboard(stationId).also {
             liveboardDao.insertAll(it.asDbLiveboard())
         }

@@ -1,5 +1,6 @@
 package com.example.mad_android.ui.screens.schedule
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -54,7 +55,7 @@ class LiveboardViewModel(
     lateinit var uiListState : StateFlow<LiveboardState>
 
     init {
-        getLiveboard("Gent-Sint-Pieters")
+        getLiveboard("")
     }
 
     fun getLiveboard(station: String) {
@@ -70,13 +71,16 @@ class LiveboardViewModel(
 
             _uiState = LiveboardUiState.Success(uiListState.value.liveboard)
         } catch (e: Exception) {
+            Log.d("probleem", "getLiveboard: ${e.message}")
             _uiState = LiveboardUiState.Error(e.message ?: "An unknown error occured")
         }
     }
 
     companion object {
         private var Instance: LiveboardViewModel? = null
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
+        val Factory: ViewModelProvider.Factory = viewModelFactory(
+
+        ) {
             initializer {
                 if(Instance == null) {
                     val application = (this[APPLICATION_KEY] as TrainApplication)

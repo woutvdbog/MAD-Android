@@ -71,7 +71,7 @@ fun StationCard(
                     Button(
                         modifier = Modifier.weight(1f),
                         onClick = {
-                            onStationSelected(station.id)
+                            onStationSelected(station.name)
                         }
                     ) {
                         Icon(
