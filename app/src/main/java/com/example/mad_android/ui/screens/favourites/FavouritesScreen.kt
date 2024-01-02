@@ -6,12 +6,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.screens.favourites.components.FavouriteCard
 
 @Composable
 fun FavouritesScreen(
@@ -31,7 +31,13 @@ fun FavouritesScreen(
         ) {
           LazyColumn(state = lazyListState) {
                 items(favouritesList.size) { index ->
-                    Text(text = favouritesList[index].name)
+                    FavouriteCard(
+                        favouriteViewModel = favouriteViewModel,
+                        favourite = favouritesList[index],
+                        OnFavouriteRemoved = {
+                            favouriteViewModel.removeFavourite(it)
+                        }
+                    )
                 }
           }
         }

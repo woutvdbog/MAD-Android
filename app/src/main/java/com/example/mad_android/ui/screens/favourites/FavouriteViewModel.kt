@@ -65,9 +65,9 @@ class FavouriteViewModel(
         }
     }
 
-    fun removeFavourite(station: StationObject) {
+    fun removeFavourite(favourite: Favourite) {
         viewModelScope.launch {
-            favouriteRepository.removeFavourite(station)
+            favouriteRepository.removeFavourite(favourite)
         }
     }
 

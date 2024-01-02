@@ -10,7 +10,7 @@ interface FavouriteRepository {
 
     suspend fun addFavourite(station: StationObject)
 
-    suspend fun removeFavourite(station: StationObject)
+    suspend fun removeFavourite(favourite: Favourite)
 }
 
 class CachingFavouriteRepository(
@@ -35,12 +35,7 @@ class CachingFavouriteRepository(
         favouriteDao.insertFavourite(favourite)
     }
 
-    override suspend fun removeFavourite(station: StationObject) {
-        val favourite = dbFavourite(
-            id = station.id,
-            name = station.name,
-            standardname = station.standardname
-        )
-        favouriteDao.deleteFavourite(favourite)
+    override suspend fun removeFavourite(favourite: Favourite) {
+        favouriteDao.deleteFavourite(favourite.asDatabaseFavourite())
     }
 }
