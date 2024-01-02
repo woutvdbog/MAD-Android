@@ -45,7 +45,10 @@ fun navComponent(
 
         composable(StationScreen.Favourites.name) {
             FavouritesScreen(
-                favouriteViewModel = favouriteViewModel
+                favouriteViewModel = favouriteViewModel,
+                onStationSelected = { station ->
+                    navController.navigate("${StationScreen.Schedule.name}/$station")
+                }
             )
         }
     }

@@ -15,7 +15,8 @@ import com.example.mad_android.ui.screens.favourites.components.FavouriteCard
 
 @Composable
 fun FavouritesScreen(
-    favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory)
+    favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),
+    onStationSelected : (String) -> Unit = {},
 ) {
     val favouritesList by favouriteViewModel.favourites.collectAsState()
     val lazyListState = rememberLazyListState()
@@ -32,8 +33,8 @@ fun FavouritesScreen(
           LazyColumn(state = lazyListState) {
                 items(favouritesList.size) { index ->
                     FavouriteCard(
-                        favouriteViewModel = favouriteViewModel,
                         favourite = favouritesList[index],
+                        onStationSelected = onStationSelected,
                         OnFavouriteRemoved = {
                             favouriteViewModel.removeFavourite(it)
                         }
