@@ -17,6 +17,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.TimeZone
 
 sealed interface LiveboardUiState {
     data class Success(val schedule: Liveboard) : LiveboardUiState
@@ -55,14 +58,14 @@ class LiveboardViewModel(
     lateinit var uiListState : StateFlow<LiveboardState>
 
     init {
-        getLiveboard("")
+        getLiveboard("Gent-Sint-Pieters")
     }
 
     fun getLiveboard(station: String) {
         try {
             viewModelScope.launch { liveboardRepository.refresh(station) }
             uiListState = liveboardRepository.getLiveboard(station).map {
-                LiveboardState(it)
+                LiveboardState(formatLiveboard(it))
             }.stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(),
@@ -74,6 +77,18 @@ class LiveboardViewModel(
             Log.d("probleem", "getLiveboard: ${e.message}")
             _uiState = LiveboardUiState.Error(e.message ?: "An unknown error occured")
         }
+    }
+
+    private fun formatLiveboard(liveboard: Liveboard): Liveboard {
+        val sdf = SimpleDateFormat("HH:mm")
+        liveboard.departures.departure.forEach {
+            val netDate = Date(it.time.toLong() * 1000)
+            sdf.timeZone = TimeZone.getTimeZone("Europe/Brussels")
+            val time = sdf.format(netDate)
+            it.time = time
+        }
+
+        return liveboard
     }
 
     companion object {
