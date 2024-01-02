@@ -21,7 +21,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mad_android.model.StationObject
+import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
@@ -29,6 +31,7 @@ import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun StationCard(
+    favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),
     station: StationObject,
     onStationSelected: (String) -> Unit = {}
 ) {
@@ -81,7 +84,9 @@ fun StationCard(
                     }
                     Button(
                         modifier = Modifier.weight(1f),
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            favouriteViewModel.addFavourite(station)
+                        }
                     ) {
                         Icon(
                             imageVector = Icons.Default.FavoriteBorder,

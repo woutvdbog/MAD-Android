@@ -17,12 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.example.mad_android.ui.screens.stations.components.StationCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StationsScreen(
     stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory),
+    favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),
     onStationSelected : (String) -> Unit
 ) {
     val stationListState = stationViewModel.uiListState.collectAsState()
@@ -52,6 +54,7 @@ fun StationsScreen(
             LazyColumn(state = lazyListState) {
                 items(stationListState.value.station.station.size) { index ->
                     StationCard(
+                        favouriteViewModel = favouriteViewModel,
                         station = stationListState.value.station.station[index],
                         onStationSelected = onStationSelected
                     )

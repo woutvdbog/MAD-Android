@@ -6,6 +6,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
+import com.example.mad_android.ui.screens.favourites.FavouritesScreen
 import com.example.mad_android.ui.screens.schedule.LiveboardViewModel
 import com.example.mad_android.ui.screens.schedule.ScheduleScreen
 import com.example.mad_android.ui.screens.stations.StationsScreen
@@ -16,6 +18,7 @@ fun navComponent(
     modifier: Modifier = Modifier
 ) {
     val liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory)
+    val favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory)
 
     NavHost(
         navController = navController,
@@ -26,7 +29,8 @@ fun navComponent(
             StationsScreen(
                 onStationSelected = { station ->
                     navController.navigate("${StationScreen.Schedule.name}/$station")
-                }
+                },
+                favouriteViewModel = favouriteViewModel
             )
         }
 
@@ -37,6 +41,12 @@ fun navComponent(
                 modifier = Modifier,
                 navController = navController,
                 liveboardViewModel = liveboardViewModel)
+        }
+
+        composable(StationScreen.Favourites.name) {
+            FavouritesScreen(
+                favouriteViewModel = favouriteViewModel
+            )
         }
     }
 }

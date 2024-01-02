@@ -62,3 +62,21 @@ data class Platform(
     @SerialName(value = "normal")
     var normal: String
 )
+
+@Serializable
+data class Vehicle(
+    @SerialName(value = "name")
+    var name: String,
+    @SerialName(value = "shortname")
+    var shortname: String,
+    @SerialName(value = "number")
+    var number: Int,
+    @SerialName(value = "type")
+    var type: String,
+    @SerialName(value = "locationX")
+    var locationX: String,
+    @SerialName(value = "locationY")
+    var locationY: String,
+    @SerialName(value = "@id")
+    var link: String
+)

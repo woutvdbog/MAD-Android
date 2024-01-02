@@ -1,6 +1,8 @@
 package com.example.mad_android.data
 
 import android.content.Context
+import com.example.mad_android.data.favourite.CachingFavouriteRepository
+import com.example.mad_android.data.favourite.FavouriteRepository
 import com.example.mad_android.data.liveboard.CachingLiveboardRepository
 import com.example.mad_android.data.liveboard.LiveboardRepository
 import com.example.mad_android.data.station.CachingStationRepository
@@ -15,6 +17,7 @@ import retrofit2.Retrofit
 interface AppContainer {
     val stationRepository: StationRepository
     val liveboardRepository: LiveboardRepository
+    val favouriteRepository: FavouriteRepository
 }
 
 class DefaultAppContainer(private val context: Context) : AppContainer {
@@ -46,6 +49,12 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
             StationDb.getDatabase(context).liveboardDao(),
             liveboardService,
             context
+        )
+    }
+
+    override val favouriteRepository: FavouriteRepository by lazy {
+        CachingFavouriteRepository(
+            favouriteDao = StationDb.getDatabase(context).favouriteDao(),
         )
     }
 }
