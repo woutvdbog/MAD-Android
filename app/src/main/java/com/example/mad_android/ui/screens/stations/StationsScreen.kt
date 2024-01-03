@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -20,9 +19,32 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.example.mad_android.ui.screens.stations.components.StationCard
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StationsScreen(
+    stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory),
+    favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),
+    onStationSelected : (String) -> Unit
+) {
+    when(stationViewModel.stationUiState) {
+        is StationUiState.Loading -> {
+            Text(text = "Loading...")
+        }
+        is StationUiState.Error -> {
+            Text(text = "Er deed zich een error voor")
+        }
+        is StationUiState.Success -> {
+            StationsScreenComponent(
+                stationViewModel = stationViewModel,
+                favouriteViewModel = favouriteViewModel,
+                onStationSelected = onStationSelected
+            )
+        }
+
+    }
+}
+
+@Composable
+fun StationsScreenComponent(
     stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory),
     favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),
     onStationSelected : (String) -> Unit

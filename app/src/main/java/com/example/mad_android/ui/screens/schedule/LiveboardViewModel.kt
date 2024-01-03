@@ -55,6 +55,9 @@ class LiveboardViewModel(
     private var _uiState : LiveboardUiState = LiveboardUiState.Loading
         private set
 
+    val liveboardUiState : LiveboardUiState
+        get() = _uiState
+
     lateinit var uiListState : StateFlow<LiveboardState>
 
     init {
@@ -62,6 +65,7 @@ class LiveboardViewModel(
     }
 
     fun getLiveboard(station: String) {
+        _uiState = LiveboardUiState.Loading
         try {
             viewModelScope.launch { liveboardRepository.refresh(station) }
             uiListState = liveboardRepository.getLiveboard(station).map {

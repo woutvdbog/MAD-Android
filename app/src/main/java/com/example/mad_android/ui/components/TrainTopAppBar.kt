@@ -10,12 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import com.example.mad_android.navigation.StationScreen
+import com.example.mad_android.navigation.Screens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TrainTopAppBar(
-    currentScreen: StationScreen,
+    currentScreen: Screens,
     canNavigateBack: Boolean = false,
     navigateUp : () -> Unit = {},
 ) {
@@ -25,7 +25,7 @@ fun TrainTopAppBar(
             titleContentColor = MaterialTheme.colorScheme.primary,
         ),
         title = {
-            Text(text = currentScreen.name)
+            Text(text = currentScreen.title)
         },
         navigationIcon = {
             if(canNavigateBack) {

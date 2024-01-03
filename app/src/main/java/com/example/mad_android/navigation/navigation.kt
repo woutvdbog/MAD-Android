@@ -24,16 +24,16 @@ fun navComponent(
 
     NavHost(
         navController = navController,
-        startDestination = StationScreen.Start.name,
+        startDestination = Screens.Start.name,
         modifier = modifier
     ) {
-        composable(route = StationScreen.Start.name) {backStackEntry ->
+        composable(route = Screens.Start.name) { backStackEntry ->
             StationsScreen(
                 onStationSelected = { station ->
-                    navController.navigate("${StationScreen.Schedule.name}/$station") {
+                    navController.navigate("${Screens.Schedule.name}/$station") {
                         launchSingleTop = true
 
-                        popUpTo(StationScreen.Schedule.name) {
+                        popUpTo(Screens.Schedule.name) {
                             inclusive = true
                         }
                     }
@@ -43,7 +43,7 @@ fun navComponent(
             )
         }
 
-        composable(route ="${StationScreen.Schedule.name}/{station}") { backStackEntry ->
+        composable(route ="${Screens.Schedule.name}/{station}") { backStackEntry ->
             val station = backStackEntry.arguments?.getString("station")
             ScheduleScreen(
                 station = station,
@@ -52,14 +52,14 @@ fun navComponent(
                 liveboardViewModel = liveboardViewModel)
         }
 
-        composable(route = StationScreen.Favourites.name) {
+        composable(route = Screens.Favourites.name) {
             FavouritesScreen(
                 favouriteViewModel = favouriteViewModel,
                 onStationSelected = { station ->
-                    navController.navigate("${StationScreen.Schedule.name}/$station") {
+                    navController.navigate("${Screens.Schedule.name}/$station") {
                         launchSingleTop = true
 
-                        popUpTo(StationScreen.Schedule.name) {
+                        popUpTo(Screens.Schedule.name) {
                             inclusive = true
                         }
                     }

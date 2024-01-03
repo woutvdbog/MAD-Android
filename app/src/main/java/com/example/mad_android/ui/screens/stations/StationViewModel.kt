@@ -38,6 +38,9 @@ class StationViewModel(
     private var _uiState : StationUiState by mutableStateOf(StationUiState.Loading)
         private set
 
+    val stationUiState : StationUiState
+        get() = _uiState
+
 
     lateinit var uiListState : StateFlow<StationState>
 
