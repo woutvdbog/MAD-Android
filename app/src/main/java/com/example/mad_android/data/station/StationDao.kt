@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface StationDao {
     @Query("SELECT * FROM stations")
-    fun getAll(): Flow<dbStation?>
+    fun getAll(): Flow<dbStation>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertStations(stations: dbStation)

@@ -1,6 +1,5 @@
 package com.example.mad_android.data.liveboard
 
-import android.util.Log
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -22,7 +21,6 @@ interface LiveboardDao {
     @Transaction
     suspend fun insertAll(liveboard: dbLiveboard) {
         deleteAll()
-        Log.d("insertall", "insertAll: $liveboard")
         insertLiveboard(liveboard)
     }
 
