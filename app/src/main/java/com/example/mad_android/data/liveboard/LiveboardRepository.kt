@@ -28,9 +28,12 @@ class CachingLiveboardRepository(
     }
 
     override suspend fun refresh(stationId: String) {
-        Log.d("probleem", "refresh: $stationId")
-        liveboardApiService.getLiveboard(stationId).also {
-            liveboardDao.insertAll(it.asDbLiveboard())
+        try {
+            liveboardApiService.getLiveboard(stationId).also {
+                liveboardDao.insertAll(it.asDbLiveboard())
+            }
+        } catch (e: Exception) {
+            Log.d("LiveboardRepository", "refresh: $e")
         }
     }
 }

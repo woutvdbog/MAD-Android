@@ -28,8 +28,12 @@ class CachingStationRepository (
     }
 
     override suspend fun refresh() {
-        stationApiService.getStations().also {
-            externalStations -> stationDao.insertAll(externalStations.asDbStation())
+        try {
+            stationApiService.getStations().also {
+                externalStations -> stationDao.insertAll(externalStations.asDbStation())
+            }
+        } catch (e: Exception) {
+            Log.d("StationRepository", "refresh: $e")
         }
     }
 }
