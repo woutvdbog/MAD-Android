@@ -3,18 +3,22 @@ package com.example.mad_android.ui
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mad_android.navigation.StationScreen
 import com.example.mad_android.navigation.navComponent
 import com.example.mad_android.ui.components.TrainBottomAppBar
+import com.example.mad_android.ui.components.TrainTopAppBar
 
 @Composable
 fun TrainApp(
     navController: NavHostController = rememberNavController(),
 ) {
-    val backStackEntry = navController.currentBackStackEntry
+
+    val backStackEntry by navController.currentBackStackEntryAsState()
 
     val goToStations = {
         navController.navigate(StationScreen.Start.name) {
@@ -28,17 +32,20 @@ fun TrainApp(
         }
     }
 
-    val currentScreenTitle = try {
-        val screen = backStackEntry?.destination?.route?.let { route ->
-            StationScreen.values().find { it.name == route } ?: StationScreen.Start
-        } ?: StationScreen.Start
-
-        screen.name
-    } catch (e: IllegalArgumentException) {
-        StationScreen.Start.name
-    }
+    val currentScreen = StationScreen.valueOf(
+        backStackEntry?.destination?.route?.split("/")?.get(0) ?: StationScreen.Start.name
+    )
 
     Scaffold(
+        topBar = {
+            TrainTopAppBar(
+                currentScreen = currentScreen,
+                canNavigateBack = navController.previousBackStackEntry != null,
+                navigateUp = {
+                    navController.popBackStack()
+                }
+            )
+        },
         bottomBar = {
             TrainBottomAppBar(
                 goToStations = goToStations,

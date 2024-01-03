@@ -25,16 +25,18 @@ fun navComponent(
         startDestination = StationScreen.Start.name,
         modifier = modifier
     ) {
-        composable(StationScreen.Start.name) {backStackEntry ->
+        composable(route = StationScreen.Start.name) {backStackEntry ->
             StationsScreen(
                 onStationSelected = { station ->
-                    navController.navigate("${StationScreen.Schedule.name}/$station")
+                    navController.navigate("${StationScreen.Schedule.name}/$station") {
+                        launchSingleTop = true
+                    }
                 },
                 favouriteViewModel = favouriteViewModel
             )
         }
 
-        composable("${StationScreen.Schedule.name}/{station}") { backStackEntry ->
+        composable(route ="${StationScreen.Schedule.name}/{station}") { backStackEntry ->
             val station = backStackEntry.arguments?.getString("station")
             ScheduleScreen(
                 station = station,
@@ -43,11 +45,13 @@ fun navComponent(
                 liveboardViewModel = liveboardViewModel)
         }
 
-        composable(StationScreen.Favourites.name) {
+        composable(route = StationScreen.Favourites.name) {
             FavouritesScreen(
                 favouriteViewModel = favouriteViewModel,
                 onStationSelected = { station ->
-                    navController.navigate("${StationScreen.Schedule.name}/$station")
+                    navController.navigate("${StationScreen.Schedule.name}/$station") {
+                        launchSingleTop = true
+                    }
                 }
             )
         }
