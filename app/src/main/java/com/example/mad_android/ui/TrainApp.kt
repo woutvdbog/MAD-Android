@@ -23,12 +23,20 @@ fun TrainApp(
     val goToStations = {
         navController.navigate(StationScreen.Start.name) {
             launchSingleTop = true
+
+            popUpTo(StationScreen.Start.name) {
+                inclusive = true
+            }
         }
     }
 
     val goToFavourites = {
         navController.navigate(StationScreen.Favourites.name) {
             launchSingleTop = true
+
+            popUpTo(StationScreen.Favourites.name) {
+                inclusive = true
+            }
         }
     }
 

@@ -10,6 +10,7 @@ import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.example.mad_android.ui.screens.favourites.FavouritesScreen
 import com.example.mad_android.ui.screens.schedule.LiveboardViewModel
 import com.example.mad_android.ui.screens.schedule.ScheduleScreen
+import com.example.mad_android.ui.screens.stations.StationViewModel
 import com.example.mad_android.ui.screens.stations.StationsScreen
 
 @Composable
@@ -19,6 +20,7 @@ fun navComponent(
 ) {
     val liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory)
     val favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory)
+    val stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory)
 
     NavHost(
         navController = navController,
@@ -30,8 +32,13 @@ fun navComponent(
                 onStationSelected = { station ->
                     navController.navigate("${StationScreen.Schedule.name}/$station") {
                         launchSingleTop = true
+
+                        popUpTo(StationScreen.Schedule.name) {
+                            inclusive = true
+                        }
                     }
                 },
+                stationViewModel = stationViewModel,
                 favouriteViewModel = favouriteViewModel
             )
         }
@@ -51,6 +58,10 @@ fun navComponent(
                 onStationSelected = { station ->
                     navController.navigate("${StationScreen.Schedule.name}/$station") {
                         launchSingleTop = true
+
+                        popUpTo(StationScreen.Schedule.name) {
+                            inclusive = true
+                        }
                     }
                 }
             )

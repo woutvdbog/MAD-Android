@@ -1,6 +1,5 @@
 package com.example.mad_android.ui.screens.schedule
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,13 +11,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.mad_android.ui.screens.schedule.components.DepartureCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScheduleScreen(
-    liveboardViewModel: LiveboardViewModel,
+    liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory),
     modifier: Modifier = Modifier,
     navController: NavController,
     station : String?
@@ -29,37 +29,6 @@ fun ScheduleScreen(
     Column(
         modifier = modifier.fillMaxSize()
     ){
-//        TopAppBar(
-//            modifier = modifier.height(IntrinsicSize.Min),
-//            title = {
-//                Text(text = liveboardListState.value.liveboard.stationinfo.standardname)
-//            },
-//            navigationIcon = {
-//                 Icon(
-//                    imageVector = Icons.Filled.ArrowBack,
-//                    contentDescription = "Back",
-//                    tint = colorResource(id = R.color.white),
-//                    modifier = Modifier.clickable {
-//                        navController.popBackStack()
-//                    }
-//                 )
-//            },
-//            //refresh button
-//            actions = {
-//                Icon(
-//                    imageVector = Icons.Filled.Refresh,
-//                    contentDescription = "Refresh",
-//                    tint = colorResource(id = R.color.white),
-//                    modifier = Modifier.clickable {
-//                        liveboardViewModel.getLiveboard(station!!)
-//                    }
-//                )
-//            },
-//            colors = TopAppBarDefaults.topAppBarColors(
-//                containerColor = colorResource(id = R.color.purple_500),
-//                titleContentColor = colorResource(id = R.color.white),
-//            )
-//        )
         LazyColumn(
             state = lazyListState,
             modifier = modifier
@@ -79,7 +48,6 @@ fun ScheduleScreen(
     }
 
     LaunchedEffect(true) {
-        Log.d("probleem", "ScheduleScreen: $station")
         liveboardViewModel.getLiveboard(station!!)
     }
 }
