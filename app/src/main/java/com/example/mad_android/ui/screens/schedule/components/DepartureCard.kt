@@ -15,11 +15,13 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.mad_android.model.Departure
 import com.example.mad_android.model.Platform
+import com.example.mad_android.model.Vehicle
 
 @Composable
 fun DepartureCard(
@@ -60,11 +62,36 @@ fun DepartureCard(
                     }
                 }
             }
-
-            PlatformBox(departure.platforminfo)
+            Row (
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxHeight(),
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                TrainType(departure.vehicleinfo)
+                PlatformBox(departure.platforminfo)
+            }
         }
     }
     Spacer(modifier = Modifier.padding(4.dp))
+}
+
+@Composable
+fun TrainType(vehicle: Vehicle) {
+    Surface(
+        modifier = Modifier
+            .padding(4.dp)
+            .widthIn(min = 32.dp),
+        shape = RoundedCornerShape(8.dp),
+        color = contentColorFor(MaterialTheme.colorScheme.primary)
+    ) {
+        Text(
+            text = vehicle.type,
+            modifier = Modifier
+                .padding(8.dp),
+            textAlign = TextAlign.Center,
+        )
+    }
 }
 
 @Composable
@@ -72,7 +99,7 @@ fun PlatformBox(platform: Platform) {
     val platformColor = if(platform.normal == "0") MaterialTheme.colorScheme.error else contentColorFor(MaterialTheme.colorScheme.primary)
     Surface(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(4.dp)
             .widthIn(min = 32.dp),
         shape = RoundedCornerShape(8.dp),
         color = platformColor

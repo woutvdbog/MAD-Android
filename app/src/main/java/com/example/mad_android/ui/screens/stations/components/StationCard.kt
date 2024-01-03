@@ -8,13 +8,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,6 +37,10 @@ fun StationCard(
     onStationSelected: (String) -> Unit = {}
 ) {
     var isExpanded by remember { mutableStateOf(false) }
+    val favouritesList by favouriteViewModel.favourites.collectAsState()
+
+    val favourite = favouritesList.find { it.name == station.name }
+    val isFavourite = favourite != null
 
     Card(
         modifier = Modifier
@@ -72,24 +77,29 @@ fun StationCard(
                         .padding(4.dp)
                 ){
                     Button(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(0.8f)
+                            .padding(4.dp),
                         onClick = {
                             onStationSelected(station.name)
                         }
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.List,
-                            contentDescription = "Favorite"
-                        )
+                        Text(text = "Bekijk dienstregeling")
                     }
                     Button(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(0.2f)
+                            .padding(4.dp),
                         onClick = {
-                            favouriteViewModel.addFavourite(station)
+                            if(isFavourite) {
+                                favouriteViewModel.removeFavourite(favourite!!)
+                            } else {
+                                favouriteViewModel.addFavourite(station)
+                            }
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.FavoriteBorder,
+                            imageVector = if(isFavourite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                             contentDescription = "Favorite"
                         )
                     }

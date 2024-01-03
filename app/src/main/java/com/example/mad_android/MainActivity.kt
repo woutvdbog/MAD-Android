@@ -8,6 +8,7 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import com.example.mad_android.ui.TrainApp
+import com.example.mad_android.ui.theme.TrainAppTheme
 import com.example.mad_android.ui.util.TrainAppNavigationType
 
 class MainActivity : ComponentActivity() {
@@ -15,21 +16,26 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent{
-            Surface {
-                val windowSize = calculateWindowSizeClass(activity = this)
+            TrainAppTheme {
+                Surface {
+                    val windowSize = calculateWindowSizeClass(activity = this)
 
-                when(windowSize.widthSizeClass) {
-                    WindowWidthSizeClass.Compact -> {
-                        TrainApp(TrainAppNavigationType.BOTTOM_NAVIGATION)
-                    }
-                    WindowWidthSizeClass.Medium -> {
-                        TrainApp(TrainAppNavigationType.NAVIGATION_RAIL)
-                    }
-                    WindowWidthSizeClass.Expanded -> {
-                        TrainApp(TrainAppNavigationType.PERMANENT_NAVIGATION_DRAWER)
-                    }
-                    else -> {
-                        TrainApp(TrainAppNavigationType.BOTTOM_NAVIGATION)
+                    when (windowSize.widthSizeClass) {
+                        WindowWidthSizeClass.Compact -> {
+                            TrainApp(TrainAppNavigationType.BOTTOM_NAVIGATION)
+                        }
+
+                        WindowWidthSizeClass.Medium -> {
+                            TrainApp(TrainAppNavigationType.NAVIGATION_RAIL)
+                        }
+
+                        WindowWidthSizeClass.Expanded -> {
+                            TrainApp(TrainAppNavigationType.PERMANENT_NAVIGATION_DRAWER)
+                        }
+
+                        else -> {
+                            TrainApp(TrainAppNavigationType.BOTTOM_NAVIGATION)
+                        }
                     }
                 }
             }
