@@ -48,7 +48,6 @@ fun navComponent(
             ScheduleScreen(
                 station = station,
                 modifier = Modifier,
-                navController = navController,
                 liveboardViewModel = liveboardViewModel)
         }
 

@@ -67,7 +67,7 @@ fun StationsScreenComponent(
             TextField(
                 value = searchText.value,
                 onValueChange = { stationViewModel.onSeachTextChange(it) },
-                label = { Text(text = "Search") },
+                label = { Text(text = "Zoeken") },
                 maxLines = 1,
                 modifier = Modifier
                     .fillMaxWidth()

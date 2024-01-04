@@ -1,6 +1,9 @@
 package com.example.mad_android.ui.screens.schedule
 
 import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -59,6 +62,9 @@ class LiveboardViewModel(
         get() = _uiState
 
     lateinit var uiListState : StateFlow<LiveboardState>
+
+    var isRefreshing by mutableStateOf(false)
+        private set
 
     init {
         getLiveboard("Gent-Sint-Pieters")

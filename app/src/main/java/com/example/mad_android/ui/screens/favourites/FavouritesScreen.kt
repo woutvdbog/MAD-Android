@@ -1,15 +1,25 @@
 package com.example.mad_android.ui.screens.favourites
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mad_android.ui.screens.favourites.components.FavouriteCard
 
@@ -30,16 +40,40 @@ fun FavouritesScreen(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-          LazyColumn(state = lazyListState) {
-                items(favouritesList.size) { index ->
-                    FavouriteCard(
-                        favourite = favouritesList[index],
-                        onStationSelected = onStationSelected,
-                        OnFavouriteRemoved = {
-                            favouriteViewModel.removeFavourite(it)
-                        }
-                    )
-                }
+          if(favouritesList.isEmpty()) {
+              Box(
+                  modifier = Modifier
+                      .fillMaxSize()
+                      .padding(42.dp),
+                  contentAlignment = Alignment.Center
+              ) {
+                  Column(
+                      horizontalAlignment = Alignment.CenterHorizontally,
+                  ) {
+                      Icon(
+                          imageVector = Icons.Default.Favorite,
+                          contentDescription = "Favourite Icon",
+                          modifier = Modifier.size(64.dp)
+                      )
+                      Text(
+                          text = "Je hebt nog geen stations aan je favorieten toegevoegd",
+                          modifier = Modifier.padding(top = 8.dp),
+                          textAlign = TextAlign.Center
+                      )
+                  }
+              }
+          } else {
+              LazyColumn(state = lazyListState) {
+                  items(favouritesList.size) { index ->
+                      FavouriteCard(
+                          favourite = favouritesList[index],
+                          onStationSelected = onStationSelected,
+                          OnFavouriteRemoved = {
+                              favouriteViewModel.removeFavourite(it)
+                          }
+                      )
+                  }
+              }
           }
         }
     }
