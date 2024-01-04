@@ -40,15 +40,13 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
         CachingStationRepository(
             StationDb.getDatabase(context).stationDao(),
             stationService,
-            context
         )
     }
 
     override val liveboardRepository: LiveboardRepository by lazy {
         CachingLiveboardRepository(
             StationDb.getDatabase(context).liveboardDao(),
-            liveboardService,
-            context
+            liveboardService
         )
     }
 

@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.components.Loading
 import com.example.mad_android.ui.screens.schedule.components.DepartureCard
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,7 +42,7 @@ fun ScheduleScreen(
     ){
     when(liveboardViewModel.liveboardUiState) {
             is LiveboardUiState.Loading -> {
-                Text(text = "Loading...")
+                Loading()
             }
 
             is LiveboardUiState.Error -> {

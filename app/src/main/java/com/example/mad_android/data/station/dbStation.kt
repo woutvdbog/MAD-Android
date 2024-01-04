@@ -8,18 +8,18 @@ import com.example.mad_android.model.StationObject
 @Entity(tableName = "stations")
 data class dbStation(
     @PrimaryKey
-    val version: String,
-    val timestamp: String,
+    val version: String = "",
+    val timestamp: String = "",
     val station: List<dbStationObject> = emptyList()
 )
 
 data class dbStationObject(
-    val locationX: String,
-    val locationY: String,
-    val id: String,
-    val name: String,
-    val link: String,
-    val standardname: String
+    val locationX: String = "",
+    val locationY: String = "",
+    val id: String = "",
+    val name: String = "",
+    val link: String = "",
+    val standardname: String = ""
 )
 
 fun dbStation.asDomainStation(): Station {

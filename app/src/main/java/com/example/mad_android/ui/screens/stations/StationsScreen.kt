@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.components.Loading
 import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.example.mad_android.ui.screens.stations.components.StationCard
 
@@ -28,7 +29,7 @@ fun StationsScreen(
 ) {
     when(stationViewModel.stationUiState) {
         is StationUiState.Loading -> {
-            Text(text = "Loading...")
+            Loading()
         }
         is StationUiState.Error -> {
             Text(text = "Er deed zich een error voor")

@@ -73,16 +73,19 @@ class LiveboardViewModel(
     fun getLiveboard(station: String) {
         _uiState = LiveboardUiState.Loading
         try {
-            viewModelScope.launch { liveboardRepository.refresh(station) }
-            uiListState = liveboardRepository.getLiveboard(station).map {
-                LiveboardState(formatLiveboard(it))
-            }.stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(),
-                initialValue = LiveboardState()
-            )
+            viewModelScope.launch {
+                liveboardRepository.refresh(station)
 
-            _uiState = LiveboardUiState.Success(uiListState.value.liveboard)
+                uiListState = liveboardRepository.getLiveboard(station).map {
+                    LiveboardState(formatLiveboard(it))
+                }.stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(),
+                    initialValue = LiveboardState()
+                )
+
+                _uiState = LiveboardUiState.Success(uiListState.value.liveboard)
+            }
         } catch (e: Exception) {
             Log.d("probleem", "getLiveboard: ${e.message}")
             _uiState = LiveboardUiState.Error(e.message ?: "An unknown error occured")

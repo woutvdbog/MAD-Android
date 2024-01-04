@@ -59,34 +59,40 @@ class StationViewModel(
     }
 
     private fun getStations() {
-        try {
-            viewModelScope.launch { stationRepository.refresh() }
-            uiListState = combine(
-                stationRepository.getStations(),
-                searchText
-            ) { stationList, query ->
-                val filteredStations = if (query.isEmpty()) {
-                    stationList.station
-                } else {
-                    stationList.station.filter {
-                        it.standardname.contains(query, ignoreCase = true) || it.name.contains(query, ignoreCase = true)
+        viewModelScope.launch {
+            try {
+                stationRepository.refresh()
+
+                uiListState = combine(
+                    stationRepository.getStations(),
+                    searchText
+                ) { stationList, query ->
+                    val filteredStations = if (query.isEmpty()) {
+                        stationList.station
+                    } else {
+                        stationList.station.filter {
+                            it.standardname.contains(query, ignoreCase = true) || it.name.contains(
+                                query,
+                                ignoreCase = true
+                            )
+                        }
                     }
-                }
-                StationState(Station("", "", filteredStations))
-            }.stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(5_000L),
-                initialValue = StationState()
-            )
+                    StationState(Station("", "", filteredStations))
+                }.stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5_000L),
+                    initialValue = StationState()
+                )
 
-            _uiState = StationUiState.Success(uiListState.value.station)
+                _uiState = StationUiState.Success(uiListState.value.station)
 
 
-        } catch (
-            e: Exception
-        ) {
-            Log.e("StationViewModel", "getStations: ${e.message}")
-            _uiState = StationUiState.Error(e.message ?: "Unknown error")
+            } catch (
+                e: Exception
+            ) {
+                Log.e("StationViewModel", "getStations: ${e.message}")
+                _uiState = StationUiState.Error(e.message ?: "Unknown error")
+            }
         }
     }
 
