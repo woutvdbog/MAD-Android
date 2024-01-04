@@ -88,6 +88,9 @@ dependencies {
 
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
+
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.6")
+
     val room_version = "2.5.0"
     //noinspection GradleDependency
     implementation("androidx.room:room-runtime:$room_version")
@@ -100,4 +103,6 @@ dependencies {
     testImplementation("androidx.room:room-testing:$room_version")
     //noinspection GradleDependency
     annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
 }

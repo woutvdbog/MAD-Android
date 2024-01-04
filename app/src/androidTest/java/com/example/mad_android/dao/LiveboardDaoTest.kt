@@ -1,4 +1,4 @@
-package com.example.mad_android
+package com.example.mad_android.dao
 
 import android.content.Context
 import androidx.room.Room

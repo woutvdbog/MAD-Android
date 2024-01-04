@@ -2,6 +2,12 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="All Tests">
+        <State />
+      </entry>
+      <entry key="StationsScreenTest">
+        <State />
+      </entry>
       <entry key="Tests in 'com.example.mad_android'">
         <State />
       </entry>

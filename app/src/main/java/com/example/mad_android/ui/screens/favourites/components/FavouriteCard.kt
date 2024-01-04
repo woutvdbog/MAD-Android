@@ -15,6 +15,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.example.mad_android.model.Favourite
 
@@ -28,6 +29,7 @@ fun FavouriteCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
+            .testTag("FavouriteCard")
             .animateContentSize()
             .clickable {
                 onStationSelected(favourite.name)

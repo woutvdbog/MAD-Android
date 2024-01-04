@@ -21,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mad_android.model.StationObject
@@ -47,6 +48,7 @@ fun StationCard(
             .fillMaxWidth()
             .padding(4.dp)
             .clickable { isExpanded = !isExpanded }
+            .testTag("StationCard")
             .animateContentSize(),
     ) {
         Text(
@@ -75,6 +77,7 @@ fun StationCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(4.dp)
+                        .testTag("StationDetails")
                 ){
                     Button(
                         modifier = Modifier
@@ -84,11 +87,15 @@ fun StationCard(
                             onStationSelected(station.name)
                         }
                     ) {
-                        Text(text = "Bekijk dienstregeling")
+                        Text(
+                            text = "Bekijk dienstregeling",
+                            modifier = Modifier.testTag("StationScheduleButton")
+                        )
                     }
                     Button(
                         modifier = Modifier
                             .weight(0.2f)
+                            .testTag("StationFavouriteButton")
                             .padding(4.dp),
                         onClick = {
                             if(isFavourite) {
