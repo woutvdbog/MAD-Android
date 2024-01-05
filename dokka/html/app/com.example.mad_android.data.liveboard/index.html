@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.example.mad_android.data.liveboard</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../index.html">
+                            app
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":app:dokkaHtml/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="app::com.example.mad_android.data.liveboard////PointingToDeclaration//492899073">
+  <div class="breadcrumbs"><a href="../../index.html">app</a><span class="delimiter">/</span><span class="current">com.example.mad_android.data.liveboard</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1385788018%2FClasslikes%2F492899073" anchor-label="CachingLiveboardRepository" id="1385788018%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-caching-liveboard-repository/index.html"><span>Caching</span><wbr></wbr><span>Liveboard</span><wbr></wbr><span><span>Repository</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1385788018%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-caching-liveboard-repository/index.html">CachingLiveboardRepository</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">liveboardDao<span class="token operator">: </span><a href="-liveboard-dao/index.html">LiveboardDao</a><span class="token punctuation">, </span></span><span class="parameter ">liveboardApiService<span class="token operator">: </span><a href="../com.example.mad_android.network/-liveboard-api-service/index.html">LiveboardApiService</a></span></span><span class="token punctuation">)</span> : <a href="-liveboard-repository/index.html">LiveboardRepository</a></div><div class="brief "><p class="paragraph">Implementation of the <a href="-liveboard-repository/index.html">LiveboardRepository</a> interface that caches liveboard information using a local Room database and fetches data from a remote API when needed.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1273908555%2FClasslikes%2F492899073" anchor-label="dbDeparture" id="-1273908555%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="db-departure/index.html"><span>db</span><wbr></wbr><span><span>Departure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1273908555%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="db-departure/index.html">dbDeparture</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>delay<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>station<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>stationinfo<span class="token operator">: </span><a href="../com.example.mad_android.data.station/db-station-object/index.html">dbStationObject</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>time<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>vehicle<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>vehicleinfo<span class="token operator">: </span><a href="db-vehicle/index.html">dbVehicle</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>platform<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>platforminfo<span class="token operator">: </span><a href="../com.example.mad_android.model/-platform/index.html">Platform</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>canceled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>left<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>isExtra<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>departureConnection<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Data class representing departure information stored in the local Room database.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-917577446%2FClasslikes%2F492899073" anchor-label="dbDepartures" id="-917577446%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="db-departures/index.html"><span>db</span><wbr></wbr><span><span>Departures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-917577446%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="db-departures/index.html">dbDepartures</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>number<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>departure<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="db-departure/index.html">dbDeparture</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Data class representing departures information stored in the local Room database.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1839942895%2FClasslikes%2F492899073" anchor-label="dbLiveboard" id="1839942895%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="db-liveboard/index.html"><span>db</span><wbr></wbr><span><span>Liveboard</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1839942895%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="db-liveboard/index.html">dbLiveboard</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>version<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>station<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>stationinfo<span class="token operator">: </span><a href="../com.example.mad_android.data.station/db-station-object/index.html">dbStationObject</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>departures<span class="token operator">: </span><a href="db-departures/index.html">dbDepartures</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Database entity representing liveboard information stored in the local Room database.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1921546621%2FClasslikes%2F492899073" anchor-label="dbVehicle" id="1921546621%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="db-vehicle/index.html"><span>db</span><wbr></wbr><span><span>Vehicle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1921546621%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="db-vehicle/index.html">dbVehicle</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>shortname<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>number<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>type<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>locationX<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>locationY<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>link<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Data class representing vehicle information stored in the local Room database.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1898221247%2FClasslikes%2F492899073" anchor-label="LiveboardDao" id="1898221247%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-liveboard-dao/index.html"><span>Liveboard</span><wbr></wbr><span><span>Dao</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1898221247%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-liveboard-dao/index.html">LiveboardDao</a></div><div class="brief "><p class="paragraph">Data Access Object (DAO) interface for interacting with the local Room database to perform CRUD operations on <a href="db-liveboard/index.html">dbLiveboard</a> entities.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1901122119%2FClasslikes%2F492899073" anchor-label="LiveboardRepository" id="1901122119%2FClasslikes%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-liveboard-repository/index.html"><span>Liveboard</span><wbr></wbr><span><span>Repository</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1901122119%2FClasslikes%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-liveboard-repository/index.html">LiveboardRepository</a></div><div class="brief "><p class="paragraph">Repository interface for managing liveboard information.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1993578754%2FFunctions%2F492899073" anchor-label="asDbDeparture" id="-1993578754%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-db-departure.html"><span>as</span><wbr></wbr><span>Db</span><wbr></wbr><span><span>Departure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1993578754%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../com.example.mad_android.model/-departure/index.html">Departure</a><span class="token punctuation">.</span><a href="as-db-departure.html"><span class="token function">asDbDeparture</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="db-departure/index.html">dbDeparture</a></div><div class="brief "><p class="paragraph">Converts a Departure domain object to a <a href="db-departure/index.html">dbDeparture</a> object for database storage.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-662037508%2FFunctions%2F492899073" anchor-label="asDbDepartures" id="-662037508%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-db-departures.html"><span>as</span><wbr></wbr><span>Db</span><wbr></wbr><span><span>Departures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-662037508%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../com.example.mad_android.model/-departures/index.html">Departures</a><span class="token punctuation">.</span><a href="as-db-departures.html"><span class="token function">asDbDepartures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="db-departures/index.html">dbDepartures</a></div><div class="brief "><p class="paragraph">Converts a <a href="../com.example.mad_android.model/-departures/index.html">Departures</a> domain object to a <a href="db-departures/index.html">dbDepartures</a> object for database storage.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1389406710%2FFunctions%2F492899073" anchor-label="asDbLiveboard" id="-1389406710%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-db-liveboard.html"><span>as</span><wbr></wbr><span>Db</span><wbr></wbr><span><span>Liveboard</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1389406710%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../com.example.mad_android.model/-liveboard/index.html">Liveboard</a><span class="token punctuation">.</span><a href="as-db-liveboard.html"><span class="token function">asDbLiveboard</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="db-liveboard/index.html">dbLiveboard</a></div><div class="brief "><p class="paragraph">Converts a <a href="../com.example.mad_android.model/-liveboard/index.html">Liveboard</a> domain object to a <a href="db-liveboard/index.html">dbLiveboard</a> object for database storage.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1129748540%2FFunctions%2F492899073" anchor-label="asDbStationObject" id="1129748540%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-db-station-object.html"><span>as</span><wbr></wbr><span>Db</span><wbr></wbr><span>Station</span><wbr></wbr><span><span>Object</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1129748540%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../com.example.mad_android.model/-station-object/index.html">StationObject</a><span class="token punctuation">.</span><a href="as-db-station-object.html"><span class="token function">asDbStationObject</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../com.example.mad_android.data.station/db-station-object/index.html">dbStationObject</a></div><div class="brief "><p class="paragraph">Converts a <a href="../com.example.mad_android.model/-station-object/index.html">StationObject</a> domain object to a <a href="../com.example.mad_android.data.station/db-station-object/index.html">dbStationObject</a> object for database storage.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="347579182%2FFunctions%2F492899073" anchor-label="asDbVehicle" id="347579182%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-db-vehicle.html"><span>as</span><wbr></wbr><span>Db</span><wbr></wbr><span><span>Vehicle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="347579182%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../com.example.mad_android.model/-vehicle/index.html">Vehicle</a><span class="token punctuation">.</span><a href="as-db-vehicle.html"><span class="token function">asDbVehicle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="db-vehicle/index.html">dbVehicle</a></div><div class="brief "><p class="paragraph">Converts a Vehicle domain object to a <a href="db-vehicle/index.html">dbVehicle</a> object for database storage.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-649452815%2FFunctions%2F492899073" anchor-label="asDomainDeparture" id="-649452815%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-domain-departure.html"><span>as</span><wbr></wbr><span>Domain</span><wbr></wbr><span><span>Departure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-649452815%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="db-departure/index.html">dbDeparture</a><span class="token punctuation">.</span><a href="as-domain-departure.html"><span class="token function">asDomainDeparture</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../com.example.mad_android.model/-departure/index.html">Departure</a></div><div class="brief "><p class="paragraph">Converts a <a href="db-departure/index.html">dbDeparture</a> object to a Departure domain object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-813265409%2FFunctions%2F492899073" anchor-label="asDomainDepartures" id="-813265409%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-domain-departures.html"><span>as</span><wbr></wbr><span>Domain</span><wbr></wbr><span><span>Departures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-813265409%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="db-departures/index.html">dbDepartures</a><span class="token punctuation">.</span><a href="as-domain-departures.html"><span class="token function">asDomainDepartures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../com.example.mad_android.model/-departures/index.html">Departures</a></div><div class="brief "><p class="paragraph">Converts a <a href="db-departures/index.html">dbDepartures</a> object to a <a href="../com.example.mad_android.model/-departures/index.html">Departures</a> domain object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1612394801%2FFunctions%2F492899073" anchor-label="asDomainLiveboard" id="1612394801%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-domain-liveboard.html"><span>as</span><wbr></wbr><span>Domain</span><wbr></wbr><span><span>Liveboard</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1612394801%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="db-liveboard/index.html">dbLiveboard</a><span class="token punctuation">.</span><a href="as-domain-liveboard.html"><span class="token function">asDomainLiveboard</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../com.example.mad_android.model/-liveboard/index.html">Liveboard</a></div><div class="brief "><p class="paragraph">Converts a <a href="db-liveboard/index.html">dbLiveboard</a> object to a <a href="../com.example.mad_android.model/-liveboard/index.html">Liveboard</a> domain object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1876444491%2FFunctions%2F492899073" anchor-label="asDomainStationObject" id="1876444491%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-domain-station-object.html"><span>as</span><wbr></wbr><span>Domain</span><wbr></wbr><span>Station</span><wbr></wbr><span><span>Object</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1876444491%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../com.example.mad_android.data.station/db-station-object/index.html">dbStationObject</a><span class="token punctuation">.</span><a href="as-domain-station-object.html"><span class="token function">asDomainStationObject</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../com.example.mad_android.model/-station-object/index.html">StationObject</a></div><div class="brief "><p class="paragraph">Converts a <a href="../com.example.mad_android.data.station/db-station-object/index.html">dbStationObject</a> object to a <a href="../com.example.mad_android.model/-station-object/index.html">StationObject</a> domain object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="891744369%2FFunctions%2F492899073" anchor-label="asDomainVehicle" id="891744369%2FFunctions%2F492899073" data-filterable-set=":app:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":app:dokkaHtml/release" data-filterable-set=":app:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-domain-vehicle.html"><span>as</span><wbr></wbr><span>Domain</span><wbr></wbr><span><span>Vehicle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="891744369%2FFunctions%2F492899073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="db-vehicle/index.html">dbVehicle</a><span class="token punctuation">.</span><a href="as-domain-vehicle.html"><span class="token function">asDomainVehicle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../com.example.mad_android.model/-vehicle/index.html">Vehicle</a></div><div class="brief "><p class="paragraph">Converts a <a href="db-vehicle/index.html">dbVehicle</a> object to a Vehicle domain object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
