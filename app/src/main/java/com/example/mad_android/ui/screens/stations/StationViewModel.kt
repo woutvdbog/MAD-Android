@@ -1,6 +1,5 @@
 package com.example.mad_android.ui.screens.stations
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -47,9 +46,6 @@ class StationViewModel(
     private val _searchText = MutableStateFlow("")
     val searchText = _searchText.asStateFlow()
 
-    private val _isSearching = MutableStateFlow(false)
-    val isSearching = _isSearching.asStateFlow()
-
     fun onSeachTextChange(text: String) {
         _searchText.value = text
     }
@@ -58,7 +54,7 @@ class StationViewModel(
         getStations()
     }
 
-    private fun getStations() {
+    fun getStations() {
         viewModelScope.launch {
             try {
                 stationRepository.refresh()
@@ -77,7 +73,7 @@ class StationViewModel(
                             )
                         }
                     }
-                    StationState(Station("", "", filteredStations))
+                    StationState(Station(stationList.version, stationList.timestamp, filteredStations))
                 }.stateIn(
                     scope = viewModelScope,
                     started = SharingStarted.WhileSubscribed(5_000L),
@@ -90,7 +86,6 @@ class StationViewModel(
             } catch (
                 e: Exception
             ) {
-                Log.e("StationViewModel", "getStations: ${e.message}")
                 _uiState = StationUiState.Error(e.message ?: "Unknown error")
             }
         }

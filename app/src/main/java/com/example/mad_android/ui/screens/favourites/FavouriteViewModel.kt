@@ -32,8 +32,7 @@ class FavouriteViewModel(
 ) : ViewModel() {
     private var _uiState : FavouriteUiState by mutableStateOf(FavouriteUiState.Loading)
         private set
-
-    lateinit var uiListState : StateFlow<FavouriteState>
+    val uiState : FavouriteUiState get() = _uiState
 
     private val _favourites = MutableStateFlow<List<Favourite>>(emptyList())
     val favourites: StateFlow<List<Favourite>> get() = _favourites
@@ -42,7 +41,7 @@ class FavouriteViewModel(
         getFavourites()
     }
 
-    private fun getFavourites() {
+    fun getFavourites() {
         _uiState = FavouriteUiState.Loading
         viewModelScope.launch {
             try {

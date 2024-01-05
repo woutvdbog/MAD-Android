@@ -104,5 +104,8 @@ dependencies {
     //noinspection GradleDependency
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
 }

@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 interface FavouriteRepository {
-    suspend fun getFavourites(): Flow<List<Favourite>>
+    fun getFavourites(): Flow<List<Favourite>>
 
     suspend fun addFavourite(station: StationObject)
 
@@ -18,7 +18,7 @@ class CachingFavouriteRepository(
 ) : FavouriteRepository {
     private val favourites = mutableListOf<Favourite>()
 
-    override suspend fun getFavourites(): Flow<List<Favourite>> {
+    override fun getFavourites(): Flow<List<Favourite>> {
         return favouriteDao.getFavourites().map {favourites ->
             favourites.map {
                 it.asDomainFavourite()
