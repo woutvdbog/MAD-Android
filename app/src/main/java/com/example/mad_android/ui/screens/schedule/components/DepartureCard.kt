@@ -17,7 +17,11 @@ import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.mad_android.model.Departure
 import com.example.mad_android.model.Platform
@@ -46,9 +50,24 @@ fun DepartureCard(
                     .padding(8.dp)
                     .fillMaxHeight()
             ) {
-                Text(
-                    text = departure.stationinfo.standardname
-                )
+                if(departure.canceled == 1) {
+                    Text(
+                        text = buildAnnotatedString {
+                            withStyle(
+                                style = SpanStyle(
+                                    textDecoration = TextDecoration.LineThrough,
+                                    color = MaterialTheme.colorScheme.error,
+                                )
+                            ) {
+                                append(departure.stationinfo.standardname)
+                            }
+                        }
+                    )
+                } else {
+                    Text(
+                        text = departure.stationinfo.standardname,
+                    )
+                }
                 Row {
                     Text(
                         text = departure.time,

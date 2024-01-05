@@ -97,7 +97,7 @@ fun ScheduleScreenComponent(
                         modifier = Modifier.size(64.dp)
                     )
                     Text(
-                        text = "Komend uur geen vertrekkende treinen gevonden in $station",
+                        text = "Komend uur geen vertrekkende treinen gevonden",
                         modifier = Modifier.padding(top = 8.dp),
                         textAlign = TextAlign.Center
                     )

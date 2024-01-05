@@ -66,7 +66,7 @@ class StationDaoTest {
     fun daoInsertStations_insertsStationsIntoDb() = runBlocking {
         insertStationToDb()
         val stations = stationDao.getAll().first()
-        assertEquals(stations.asDomainStation(), stations1)
+        assertEquals(stations?.asDomainStation(), stations1)
     }
 
     @Test

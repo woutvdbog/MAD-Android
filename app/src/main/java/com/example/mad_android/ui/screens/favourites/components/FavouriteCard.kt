@@ -32,7 +32,7 @@ fun FavouriteCard(
             .testTag("FavouriteCard")
             .animateContentSize()
             .clickable {
-                onStationSelected(favourite.name)
+                onStationSelected(favourite.id)
             }
     ) {
         Row (

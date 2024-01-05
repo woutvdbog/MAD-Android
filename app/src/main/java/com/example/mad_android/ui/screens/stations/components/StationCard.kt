@@ -84,7 +84,7 @@ fun StationCard(
                             .weight(0.8f)
                             .padding(4.dp),
                         onClick = {
-                            onStationSelected(station.name)
+                            onStationSelected(station.id)
                         }
                     ) {
                         Text(
