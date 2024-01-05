@@ -27,6 +27,11 @@ import com.example.mad_android.model.Departure
 import com.example.mad_android.model.Platform
 import com.example.mad_android.model.Vehicle
 
+/**
+ * Composable function to display a departure card with information about a train departure.
+ * @param modifier Modifier for customizing the appearance of the DepartureCard.
+ * @param departure Departure object containing information about the train departure.
+ */
 @Composable
 fun DepartureCard(
     modifier: Modifier = Modifier,
@@ -95,6 +100,10 @@ fun DepartureCard(
     Spacer(modifier = Modifier.padding(4.dp))
 }
 
+/**
+ * Composable function to display the train type in a rounded box.
+ * @param vehicle Vehicle object containing information about the train type.
+ */
 @Composable
 fun TrainType(vehicle: Vehicle) {
     Surface(
@@ -113,6 +122,10 @@ fun TrainType(vehicle: Vehicle) {
     }
 }
 
+/**
+ * Composable function to display the platform information in a rounded box.
+ * @param platform Platform object containing information about the platform.
+ */
 @Composable
 fun PlatformBox(platform: Platform) {
     val platformColor = if(platform.normal == "0") MaterialTheme.colorScheme.error else contentColorFor(MaterialTheme.colorScheme.primary)

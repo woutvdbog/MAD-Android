@@ -11,6 +11,11 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import com.example.mad_android.navigation.NavItems
 
+/**
+ * Composable function for rendering the bottom app bar.
+ *
+ * @param onTabPressed Callback for handling tab selection in the bottom app bar.
+ */
 @Composable
 fun TrainBottomAppBar(
     onTabPressed: ((String) -> Unit),

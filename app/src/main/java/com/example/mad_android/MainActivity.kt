@@ -11,6 +11,9 @@ import com.example.mad_android.ui.TrainApp
 import com.example.mad_android.ui.theme.TrainAppTheme
 import com.example.mad_android.ui.util.TrainAppNavigationType
 
+/**
+ * Main activity class for the TrainApp.
+ */
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {

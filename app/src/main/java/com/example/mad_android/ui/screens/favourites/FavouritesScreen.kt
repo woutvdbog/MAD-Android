@@ -23,6 +23,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mad_android.ui.screens.favourites.components.FavouriteCard
 
+/**
+ * Composable function for displaying the screen that shows the user's favourite stations.
+ *
+ * @param favouriteViewModel The ViewModel used to manage favourite stations.
+ * @param onStationSelected Callback to handle the selection of a station.
+ */
 @Composable
 fun FavouritesScreen(
     favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),
@@ -68,7 +74,7 @@ fun FavouritesScreen(
                       FavouriteCard(
                           favourite = favouritesList[index],
                           onStationSelected = onStationSelected,
-                          OnFavouriteRemoved = {
+                          onFavouriteRemoved = {
                               favouriteViewModel.removeFavourite(it)
                           }
                       )

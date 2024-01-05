@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,10 +26,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.components.Error
 import com.example.mad_android.ui.components.Loading
 import com.example.mad_android.ui.screens.schedule.components.DepartureCard
 
-@OptIn(ExperimentalMaterial3Api::class)
+/**
+ * Composable function for the Schedule screen.
+ * @param modifier Modifier for customizing the appearance of the ScheduleScreen.
+ * @param liveboardViewModel ViewModel for handling Liveboard data.
+ * @param station The station for which the Liveboard information is to be displayed.
+ */
 @Composable
 fun ScheduleScreen(
     modifier: Modifier = Modifier,
@@ -46,7 +51,7 @@ fun ScheduleScreen(
             }
 
             is LiveboardUiState.Error -> {
-                Text(text = "Er deed zich een error voor")
+                Error()
             }
 
             is LiveboardUiState.Success -> {
@@ -64,11 +69,17 @@ fun ScheduleScreen(
     }
 }
 
+/**
+ * Composable function for the main content of the Schedule screen.
+ * @param modifier Modifier for customizing the appearance of the ScheduleScreenComponent.
+ * @param liveboardViewModel ViewModel for handling Liveboard data.
+ * @param station The station for which the Liveboard information is to be displayed.
+ */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ScheduleScreenComponent(
-    liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory),
     modifier: Modifier = Modifier,
+    liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory),
     station : String?
 ) {
     val liveboardListState = liveboardViewModel.uiListState.collectAsState()

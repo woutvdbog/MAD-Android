@@ -17,10 +17,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.ui.components.Error
 import com.example.mad_android.ui.components.Loading
 import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.example.mad_android.ui.screens.stations.components.StationCard
 
+/**
+ * A Composable representing the main screen for displaying a list of stations.
+ *
+ * This Composable includes a search bar for filtering stations, a loading indicator for the loading state,
+ * an error component for displaying errors, and a list of stations when the data is successfully loaded.
+ *
+ * @param stationViewModel The [StationViewModel] used for managing station-related data.
+ * @param favouriteViewModel The [FavouriteViewModel] used for managing favorite stations.
+ * @param onStationSelected A lambda function to be called when a station is selected.
+ */
 @Composable
 fun StationsScreen(
     stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory),
@@ -32,7 +43,7 @@ fun StationsScreen(
             Loading()
         }
         is StationUiState.Error -> {
-            Text(text = "Er deed zich een error voor")
+            Error()
         }
         is StationUiState.Success -> {
             StationsScreenComponent(
@@ -45,6 +56,15 @@ fun StationsScreen(
     }
 }
 
+/**
+ * A Composable representing the main content of the Stations screen.
+ *
+ * This Composable displays a search bar, a loading indicator, an error component, and a list of stations.
+ *
+ * @param stationViewModel The [StationViewModel] used for managing station-related data.
+ * @param favouriteViewModel The [FavouriteViewModel] used for managing favorite stations.
+ * @param onStationSelected A lambda function to be called when a station is selected.
+ */
 @Composable
 fun StationsScreenComponent(
     stationViewModel: StationViewModel = viewModel(factory = StationViewModel.Factory),

@@ -14,6 +14,13 @@ import androidx.navigation.NavDestination
 import com.example.mad_android.R
 import com.example.mad_android.navigation.NavItems
 
+/**
+ * Composable function for rendering the content of the navigation drawer.
+ *
+ * @param selectedDestination The currently selected destination in the navigation.
+ * @param onTabPressed Callback for handling tab selection in the navigation drawer.
+ * @param modifier Modifier for styling and layout adjustments.
+ */
 @Composable
 fun NavigationDrawerContent(
     selectedDestination: NavDestination?,

@@ -19,10 +19,17 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.example.mad_android.model.Favourite
 
+/**
+ * Composable function for rendering a card representing a favourite station.
+ *
+ * @param favourite The favourite station to display in the card.
+ * @param onFavouriteRemoved Callback to handle the removal of the favourite station.
+ * @param onStationSelected Callback to handle the selection of the station associated with the favourite.
+ */
 @Composable
 fun FavouriteCard(
     favourite: Favourite,
-    OnFavouriteRemoved: (Favourite) -> Unit = {},
+    onFavouriteRemoved: (Favourite) -> Unit = {},
     onStationSelected: (String) -> Unit = {},
 ) {
     Card (
@@ -47,7 +54,7 @@ fun FavouriteCard(
             )
             IconButton(
                 onClick = {
-                    OnFavouriteRemoved(favourite)
+                    onFavouriteRemoved(favourite)
                 }
             ) {
                 Icon(

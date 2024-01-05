@@ -17,6 +17,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 
+/**
+ * FavouriteUiState represents the different states of the Favourites screen.
+ */
 sealed interface FavouriteUiState {
     data class Success(val favourites: List<Favourite>) : FavouriteUiState
 
@@ -25,11 +28,14 @@ sealed interface FavouriteUiState {
     object Loading : FavouriteUiState
 }
 
-data class FavouriteState(val favourite: Favourite = Favourite("","", ""))
-
+/**
+ * ViewModel for the Favourites screen.
+ * @property favouriteRepository The repository responsible for handling Favourite data.
+ */
 class FavouriteViewModel(
     private val favouriteRepository: FavouriteRepository
 ) : ViewModel() {
+
     private var _uiState : FavouriteUiState by mutableStateOf(FavouriteUiState.Loading)
         private set
     val uiState : FavouriteUiState get() = _uiState
@@ -37,10 +43,17 @@ class FavouriteViewModel(
     private val _favourites = MutableStateFlow<List<Favourite>>(emptyList())
     val favourites: StateFlow<List<Favourite>> get() = _favourites
 
+    /**
+     * Initializes the ViewModel and triggers the retrieval of Favourites.
+     */
     init {
         getFavourites()
     }
 
+    /**
+     * Retrieves the list of Favourites from the repository.
+     * Updates the UI state accordingly.
+     */
     fun getFavourites() {
         _uiState = FavouriteUiState.Loading
         viewModelScope.launch {
@@ -58,12 +71,20 @@ class FavouriteViewModel(
         }
     }
 
+    /**
+     * Adds a new Favourite item for the given station.
+     * @param station The StationObject to add as a favourite.
+     */
     fun addFavourite(station: StationObject) {
         viewModelScope.launch {
             favouriteRepository.addFavourite(station)
         }
     }
 
+    /**
+     * Removes the specified Favourite item.
+     * @param favourite The Favourite item to be removed.
+     */
     fun removeFavourite(favourite: Favourite) {
         viewModelScope.launch {
             favouriteRepository.removeFavourite(favourite)

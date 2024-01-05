@@ -8,6 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import com.example.mad_android.navigation.NavItems
 
+/**
+ * Composable function for rendering the navigation rail.
+ *
+ * @param selectedDestination The currently selected destination in the navigation.
+ * @param onTabPressed Callback for handling tab selection in the navigation rail.
+ * @param modifier Modifier for styling and layout adjustments.
+ */
 @Composable
 fun TrainAppNavigationRail(
     selectedDestination: NavDestination?,

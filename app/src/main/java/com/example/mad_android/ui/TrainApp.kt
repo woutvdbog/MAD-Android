@@ -27,6 +27,12 @@ import com.example.mad_android.ui.components.TrainBottomAppBar
 import com.example.mad_android.ui.components.TrainTopAppBar
 import com.example.mad_android.ui.util.TrainAppNavigationType
 
+/**
+ * Composable representing the main structure of the TrainApp.
+ *
+ * @param navigationType The type of navigation used in the app (e.g., BOTTOM_NAVIGATION, NAVIGATION_RAIL).
+ * @param navController The NavController used for navigation between screens.
+ */
 @Composable
 fun TrainApp(
     navigationType: TrainAppNavigationType,
@@ -34,26 +40,6 @@ fun TrainApp(
 ) {
 
     val backStackEntry by navController.currentBackStackEntryAsState()
-
-    val goToStations = {
-        navController.navigate(Screens.Start.name) {
-            launchSingleTop = true
-
-            popUpTo(Screens.Start.name) {
-                inclusive = true
-            }
-        }
-    }
-
-    val goToFavourites = {
-        navController.navigate(Screens.Favourites.name) {
-            launchSingleTop = true
-
-            popUpTo(Screens.Favourites.name) {
-                inclusive = false
-            }
-        }
-    }
 
     val currentScreen = Screens.valueOf(
         backStackEntry?.destination?.route?.split("/")?.get(0) ?: Screens.Start.name
@@ -147,15 +133,4 @@ fun TrainApp(
             }
         }
     }
-
-//    when {
-//        currentScreenTitle == StationScreen.Start.name -> {
-//            Scaffold { innerPadding ->
-//                navComponent(
-//                    modifier = Modifier.padding(innerPadding),
-//                    navController = navController
-//                )
-//            }
-//        }
-//    }
 }

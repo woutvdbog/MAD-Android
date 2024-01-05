@@ -14,45 +14,60 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
+/**
+ * Dependency injection container for providing instances of repositories and services.
+ */
 interface AppContainer {
     val stationRepository: StationRepository
     val liveboardRepository: LiveboardRepository
     val favouriteRepository: FavouriteRepository
 }
 
+/**
+ * Default implementation of the [AppContainer] interface for dependency injection.
+ *
+ * @param context The application context.
+ */
 class DefaultAppContainer(private val context: Context) : AppContainer {
+    // Base URL for the API
     private val baseUrl = "http://api.irail.be/"
 
+    // Retrofit instance for network requests
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
         .build()
 
+    // Service for fetching station information from the API
     private val stationService: StationApiService by lazy {
         retrofit.create(StationApiService::class.java)
     }
 
+    // Service for fetching liveboard information from the API
     private val liveboardService: LiveboardApiService by lazy {
         retrofit.create(LiveboardApiService::class.java)
     }
 
+    // Repository for managing station information
     override val stationRepository: StationRepository by lazy {
         CachingStationRepository(
-            StationDb.getDatabase(context).stationDao(),
+            TrainAppDb.getDatabase(context).stationDao(),
             stationService,
         )
     }
 
+    // Repository for managing liveboard information
     override val liveboardRepository: LiveboardRepository by lazy {
         CachingLiveboardRepository(
-            StationDb.getDatabase(context).liveboardDao(),
+            TrainAppDb.getDatabase(context).liveboardDao(),
             liveboardService
         )
     }
 
+    // Repository for managing favourite information
     override val favouriteRepository: FavouriteRepository by lazy {
         CachingFavouriteRepository(
-            favouriteDao = StationDb.getDatabase(context).favouriteDao(),
+            favouriteDao = TrainAppDb.getDatabase(context).favouriteDao(),
         )
     }
 }

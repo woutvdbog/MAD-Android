@@ -20,7 +20,9 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-
+/**
+ * Sealed interface representing the different states of the Station screen.
+ */
 sealed interface StationUiState {
     data class Success(val stations: Station) : StationUiState
 
@@ -29,8 +31,16 @@ sealed interface StationUiState {
     object Loading : StationUiState
 }
 
+/**
+ * Data class representing the state of the Station.
+ * @property station Station object containing station information.
+ */
 data class StationState(val station: Station = Station("","", emptyList()))
 
+/**
+ * ViewModel for the Station screen.
+ * @property stationRepository The repository responsible for handling Station data.
+ */
 class StationViewModel(
     private val stationRepository: StationRepository
 ) : ViewModel() {
@@ -46,6 +56,11 @@ class StationViewModel(
     private val _searchText = MutableStateFlow("")
     val searchText = _searchText.asStateFlow()
 
+    /**
+     * Updates the search text when it changes.
+     *
+     * @param text The new search text.
+     */
     fun onSeachTextChange(text: String) {
         _searchText.value = text
     }
@@ -54,8 +69,12 @@ class StationViewModel(
         getStations()
     }
 
+    /**
+     * Fetches the list of stations from the repository and updates the UI state accordingly.
+     */
     fun getStations() {
         viewModelScope.launch {
+            _uiState = StationUiState.Loading
             try {
                 stationRepository.refresh()
 

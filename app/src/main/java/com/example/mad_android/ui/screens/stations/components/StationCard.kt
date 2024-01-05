@@ -31,6 +31,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.rememberCameraPositionState
 
+/**
+ * A Composable representing a card view for displaying information about a station.
+ *
+ * This Composable displays a station's name and provides additional details, such as a Google Map
+ * showing the station's location when expanded. Users can also view the station's schedule and
+ * mark it as a favorite.
+ *
+ * @param favouriteViewModel The [FavouriteViewModel] used for managing favorite stations.
+ * @param station The [StationObject] representing the station to be displayed.
+ * @param onStationSelected A lambda function to be called when the station is selected.
+ */
 @Composable
 fun StationCard(
     favouriteViewModel: FavouriteViewModel = viewModel(factory = FavouriteViewModel.Factory),

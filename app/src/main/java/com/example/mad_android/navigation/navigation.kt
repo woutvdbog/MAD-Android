@@ -13,6 +13,14 @@ import com.example.mad_android.ui.screens.schedule.ScheduleScreen
 import com.example.mad_android.ui.screens.stations.StationViewModel
 import com.example.mad_android.ui.screens.stations.StationsScreen
 
+/**
+ * Composable function defining the navigation component for the application.
+ *
+ * This function sets up the navigation using [NavHost] and defines the composable screens for each destination.
+ *
+ * @param navController Navigation controller for handling navigation events.
+ * @param modifier [Modifier] for styling the navigation component.
+ */
 @Composable
 fun navComponent(
     navController: NavHostController,

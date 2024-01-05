@@ -12,6 +12,13 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import com.example.mad_android.navigation.Screens
 
+/**
+ * Composable function for rendering the top app bar.
+ *
+ * @param currentScreen The current screen being displayed, used for displaying the screen title.
+ * @param canNavigateBack Boolean flag indicating whether the screen allows navigation back.
+ * @param navigateUp Callback to handle the up navigation action.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TrainTopAppBar(

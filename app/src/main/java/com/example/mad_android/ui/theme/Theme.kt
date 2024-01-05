@@ -37,6 +37,13 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+/**
+ * Composable that applies the theme for the TrainApp.
+ *
+ * @param darkTheme Whether to use the dark theme.
+ * @param dynamicColor Whether to use dynamic color (available on Android 12+).
+ * @param content The content to be displayed within the theme.
+ */
 @Composable
 fun TrainAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
