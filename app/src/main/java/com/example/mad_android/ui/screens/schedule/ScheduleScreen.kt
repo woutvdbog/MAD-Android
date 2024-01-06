@@ -121,7 +121,6 @@ fun ScheduleScreenComponent(
                 state = lazyListState,
                 modifier = modifier
                     .fillMaxSize()
-                    .padding(4.dp)
             ) {
                 liveboardListState.value.liveboard.departures.departure.forEach { departure ->
                     item {
