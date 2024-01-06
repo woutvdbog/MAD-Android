@@ -1,6 +1,7 @@
 package com.example.mad_android.ui.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -30,6 +31,7 @@ fun TrainBottomAppBar(
                         onTabPressed(navItem.name)
                     },
                     modifier = Modifier.weight(1f)
+                        .fillMaxHeight()
                 ) {
                     Column {
                         Icon(
