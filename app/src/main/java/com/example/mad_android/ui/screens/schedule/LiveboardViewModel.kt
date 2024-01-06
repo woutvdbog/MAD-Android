@@ -1,7 +1,6 @@
 package com.example.mad_android.ui.screens.schedule
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -91,33 +90,31 @@ class LiveboardViewModel(
      * @param station The station for which the Liveboard information is to be retrieved.
      */
     fun getLiveboard(station: String) {
-        _uiState = LiveboardUiState.Loading
-        try {
             viewModelScope.launch {
-                liveboardRepository.refresh(station)
+                try {
+                    _uiState = LiveboardUiState.Loading
+                    liveboardRepository.refresh(station)
 
-                val liveboardResult = liveboardRepository.getLiveboard(station)
+                    val liveboardResult = liveboardRepository.getLiveboard(station)
 
-                if(liveboardResult.first().stationinfo.id != station) {
-                    Log.d("probleem", "getLiveboard: ${liveboardResult.first().stationinfo.id} != $station")
-                    _uiState = LiveboardUiState.Error("Error while fetching liveboard")
-                    return@launch
+                    if(liveboardResult.first().stationinfo.id != station) {
+                        _uiState = LiveboardUiState.Error("Error while fetching liveboard")
+                        return@launch
+                    }
+
+                    uiListState = liveboardResult.map {
+                        LiveboardState(formatLiveboard(it))
+                    }.stateIn(
+                        scope = viewModelScope,
+                        started = SharingStarted.WhileSubscribed(),
+                        initialValue = LiveboardState()
+                    )
+
+                    _uiState = LiveboardUiState.Success(uiListState.value.liveboard)
+                } catch (e: Exception) {
+                    _uiState = LiveboardUiState.Error(e.message ?: "An unknown error occured")
                 }
-
-                uiListState = liveboardResult.map {
-                    LiveboardState(formatLiveboard(it))
-                }.stateIn(
-                    scope = viewModelScope,
-                    started = SharingStarted.WhileSubscribed(),
-                    initialValue = LiveboardState()
-                )
-
-                _uiState = LiveboardUiState.Success(uiListState.value.liveboard)
             }
-        } catch (e: Exception) {
-            Log.d("probleem", "getLiveboard: ${e.message}")
-            _uiState = LiveboardUiState.Error(e.message ?: "An unknown error occured")
-        }
     }
 
     /**

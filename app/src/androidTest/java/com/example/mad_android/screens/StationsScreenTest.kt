@@ -33,6 +33,8 @@ class StationsScreenTest {
 
     @Test
     fun verifyStationsLoaded() {
+        waitForStations()
+
         composeTestRule
             .onAllNodesWithTag("StationCard")
             .assertAreDisplayed()
@@ -40,6 +42,8 @@ class StationsScreenTest {
 
     @Test
     fun viewStationDetails() {
+        waitForStations()
+
         composeTestRule
             .onAllNodesWithTag("StationCard")
             .onFirst()
@@ -51,6 +55,8 @@ class StationsScreenTest {
 
     @Test
     fun viewStationSchedule() {
+        waitForStations()
+
         composeTestRule
             .onAllNodesWithTag("StationCard")
             .onFirst()
@@ -65,5 +71,13 @@ class StationsScreenTest {
         composeTestRule
             .onNodeWithText("Dienstregeling")
             .assertIsDisplayed()
+    }
+
+    private fun waitForStations() {
+        composeTestRule.waitUntil {
+            composeTestRule
+                .onAllNodesWithTag("StationCard")
+                .fetchSemanticsNodes().isNotEmpty()
+        }
     }
 }

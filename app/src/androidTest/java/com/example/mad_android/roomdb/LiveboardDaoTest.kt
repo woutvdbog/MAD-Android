@@ -1,10 +1,10 @@
-package com.example.mad_android.dao
+package com.example.mad_android.roomdb
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.mad_android.data.StationDb
+import com.example.mad_android.data.TrainAppDb
 import com.example.mad_android.data.liveboard.LiveboardDao
 import com.example.mad_android.data.liveboard.asDbLiveboard
 import com.example.mad_android.data.liveboard.asDomainLiveboard
@@ -26,7 +26,7 @@ import java.io.IOException
 @RunWith(AndroidJUnit4::class)
 class LiveboardDaoTest {
     private lateinit var liveboardDao: LiveboardDao
-    private lateinit var database: StationDb
+    private lateinit var database: TrainAppDb
 
     private var liveboard1 = Liveboard(
         "1.2",
@@ -90,7 +90,7 @@ class LiveboardDaoTest {
     fun createDb() {
         val context: Context = ApplicationProvider.getApplicationContext()
 
-        database = Room.inMemoryDatabaseBuilder(context, StationDb::class.java)
+        database = Room.inMemoryDatabaseBuilder(context, TrainAppDb::class.java)
             .allowMainThreadQueries()
             .build()
         liveboardDao = database.liveboardDao()

@@ -101,7 +101,7 @@ fun StationsScreenComponent(
                     StationCard(
                         favouriteViewModel = favouriteViewModel,
                         station = stationListState.value.station.station[index],
-                        onStationSelected = onStationSelected
+                        onStationSelected = onStationSelected,
                     )
                 }
             }

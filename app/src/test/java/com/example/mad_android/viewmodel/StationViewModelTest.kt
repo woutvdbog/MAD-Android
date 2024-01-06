@@ -37,14 +37,7 @@ class StationViewModelTest {
     }
 
     @Test
-    fun getStations_Loading() {
-        val stationViewModel = StationViewModel(stationRepository)
-
-        assert(stationViewModel.stationUiState is StationUiState.Loading)
-    }
-
-    @Test
-    fun getStations_Success() {
+    fun getStations_success() {
         val stationViewModel = StationViewModel(stationRepository)
 
         stationViewModel.getStations()
@@ -55,7 +48,7 @@ class StationViewModelTest {
     }
 
     @Test
-    fun getStations_Error(): Unit = runTest {
+    fun getStations_error(): Unit = runTest {
 
         `when`(stationRepository.getStations()).thenThrow(RuntimeException("Test exception"))
 

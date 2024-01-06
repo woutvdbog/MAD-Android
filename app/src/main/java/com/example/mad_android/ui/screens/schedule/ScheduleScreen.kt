@@ -17,6 +17,7 @@ import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -90,7 +91,8 @@ fun ScheduleScreenComponent(
     )
 
     Surface (
-        modifier = modifier.pullRefresh(pullRefreshState)
+        modifier = modifier.pullRefresh(pullRefreshState),
+        color = MaterialTheme.colorScheme.background
     ){
         if (liveboardListState.value.liveboard.departures.departure.isEmpty()) {
             Box(

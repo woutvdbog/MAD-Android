@@ -41,7 +41,7 @@ class FavouriteViewModelTest {
     }
 
     @Test
-    fun testGetFavourites_Success() {
+    fun testGetFavourites_success() {
         val favouriteViewModel = FavouriteViewModel(favouriteRepository)
         val mockFavourites = listOf(
             Favourite("1", "Station 1", "Station 1"),
@@ -57,7 +57,7 @@ class FavouriteViewModelTest {
     }
 
     @Test
-    fun testGetFavourites_Error() {
+    fun testGetFavourites_error() {
         val favouriteViewModel = FavouriteViewModel(favouriteRepository)
 
         `when`(favouriteRepository.getFavourites()).thenThrow(RuntimeException("Error"))

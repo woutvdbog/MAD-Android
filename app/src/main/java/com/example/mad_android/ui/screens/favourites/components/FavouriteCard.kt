@@ -53,6 +53,7 @@ fun FavouriteCard(
                 modifier = Modifier.padding(16.dp)
             )
             IconButton(
+                modifier = Modifier.testTag("RemoveFavouriteButton"),
                 onClick = {
                     onFavouriteRemoved(favourite)
                 }

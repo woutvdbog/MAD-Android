@@ -1,10 +1,10 @@
-package com.example.mad_android.dao
+package com.example.mad_android.roomdb
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.mad_android.data.StationDb
+import com.example.mad_android.data.TrainAppDb
 import com.example.mad_android.data.station.StationDao
 import com.example.mad_android.data.station.asDbStation
 import com.example.mad_android.data.station.asDomainStation
@@ -22,12 +22,12 @@ import java.io.IOException
 @RunWith(AndroidJUnit4::class)
 class StationDaoTest {
     private lateinit var stationDao: StationDao
-    private lateinit var database: StationDb
+    private lateinit var database: TrainAppDb
 
     private var stations1 = Station(
         "1.2",
         "1704316190",
-        List<StationObject>(
+        List(
             1
         ) {
             StationObject(
@@ -49,7 +49,7 @@ class StationDaoTest {
     fun createDb() {
         val context: Context = ApplicationProvider.getApplicationContext()
 
-        database = Room.inMemoryDatabaseBuilder(context, StationDb::class.java)
+        database = Room.inMemoryDatabaseBuilder(context, TrainAppDb::class.java)
             .allowMainThreadQueries()
             .build()
         stationDao = database.stationDao()
