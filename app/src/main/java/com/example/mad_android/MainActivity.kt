@@ -3,44 +3,46 @@ package com.example.mad_android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.mad_android.ui.theme.MADAndroidTheme
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+import com.example.mad_android.ui.TrainApp
+import com.example.mad_android.ui.theme.TrainAppTheme
+import com.example.mad_android.ui.util.TrainAppNavigationType
 
+/**
+ * Main activity class for the TrainApp.
+ */
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MADAndroidTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
+        setContent{
+            TrainAppTheme {
+                Surface {
+                    val windowSize = calculateWindowSizeClass(activity = this)
+
+                    when (windowSize.widthSizeClass) {
+                        WindowWidthSizeClass.Compact -> {
+                            TrainApp(TrainAppNavigationType.BOTTOM_NAVIGATION)
+                        }
+
+                        WindowWidthSizeClass.Medium -> {
+                            TrainApp(TrainAppNavigationType.NAVIGATION_RAIL)
+                        }
+
+                        WindowWidthSizeClass.Expanded -> {
+                            TrainApp(TrainAppNavigationType.PERMANENT_NAVIGATION_DRAWER)
+                        }
+
+                        else -> {
+                            TrainApp(TrainAppNavigationType.BOTTOM_NAVIGATION)
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MADAndroidTheme {
-        Greeting("Android")
-    }
-}
