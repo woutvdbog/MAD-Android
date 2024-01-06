@@ -24,9 +24,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.R
 import com.example.mad_android.ui.components.Error
 import com.example.mad_android.ui.components.Loading
 import com.example.mad_android.ui.screens.schedule.components.DepartureCard
@@ -110,7 +112,7 @@ fun ScheduleScreenComponent(
                         modifier = Modifier.size(64.dp)
                     )
                     Text(
-                        text = "Komend uur geen vertrekkende treinen gevonden",
+                        text = stringResource(R.string.no_departures),
                         modifier = Modifier.padding(top = 8.dp),
                         textAlign = TextAlign.Center
                     )
@@ -133,7 +135,8 @@ fun ScheduleScreenComponent(
             }
         }
         Box(
-            modifier = Modifier.height(48.dp)
+            modifier = Modifier
+                .height(48.dp)
                 .fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {

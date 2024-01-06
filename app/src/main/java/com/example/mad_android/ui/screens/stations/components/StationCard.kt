@@ -22,8 +22,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.R
 import com.example.mad_android.model.StationObject
 import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
 import com.google.android.gms.maps.model.CameraPosition
@@ -99,7 +101,7 @@ fun StationCard(
                         }
                     ) {
                         Text(
-                            text = "Bekijk dienstregeling",
+                            text = stringResource(R.string.view_schedule),
                             modifier = Modifier.testTag("StationScheduleButton")
                         )
                     }

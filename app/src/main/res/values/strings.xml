@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">MAD-Android</string>
+    <string name="app_name">TrainApp</string>
     <string name="google_maps_key">AIzaSyAi9ZZyOhh-PgBYyeF0VP98kPXM4BQWro0</string>
+    <string name="view_schedule">Bekijk dienstregeling</string>
+    <string name="search">Zoeken</string>
+    <string name="no_departures">Komend uur geen vertrekkende treinen gevonden</string>
+    <string name="no_favourites">Je hebt nog geen stations aan je favorieten toegevoegd</string>
 </resources>

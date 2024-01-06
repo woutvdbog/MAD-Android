@@ -15,8 +15,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mad_android.R
 import com.example.mad_android.ui.components.Error
 import com.example.mad_android.ui.components.Loading
 import com.example.mad_android.ui.screens.favourites.FavouriteViewModel
@@ -89,7 +91,7 @@ fun StationsScreenComponent(
             TextField(
                 value = searchText.value,
                 onValueChange = { stationViewModel.onSeachTextChange(it) },
-                label = { Text(text = "Zoeken") },
+                label = { Text(text = stringResource(R.string.search)) },
                 maxLines = 1,
                 modifier = Modifier
                     .testTag("SearchBar")

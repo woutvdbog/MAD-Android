@@ -22,7 +22,7 @@ import com.example.mad_android.ui.screens.stations.StationsScreen
  * @param modifier [Modifier] for styling the navigation component.
  */
 @Composable
-fun navComponent(
+fun NavComponent(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {

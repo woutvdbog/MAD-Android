@@ -57,14 +57,3 @@ fun Favourite.asDatabaseFavourite(): dbFavourite {
         standardname = standardname
     )
 }
-
-/**
- * Converts a list of [Favourite] domain objects to a list of [dbFavourite] objects for database storage.
- *
- * @return List of converted [dbFavourite] objects.
- */
-fun List<Favourite>.asDatabaseFavouriteList(): List<dbFavourite> {
-    return map {
-        it.asDatabaseFavourite()
-    }
-}

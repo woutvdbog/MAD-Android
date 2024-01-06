@@ -19,8 +19,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mad_android.R
+import com.example.mad_android.navigation.NavComponent
 import com.example.mad_android.navigation.Screens
-import com.example.mad_android.navigation.navComponent
 import com.example.mad_android.ui.components.NavigationDrawerContent
 import com.example.mad_android.ui.components.TrainAppNavigationRail
 import com.example.mad_android.ui.components.TrainBottomAppBar
@@ -45,76 +45,43 @@ fun TrainApp(
         backStackEntry?.destination?.route?.split("/")?.get(0) ?: Screens.Start.name
     )
 
-    if(navigationType == TrainAppNavigationType.PERMANENT_NAVIGATION_DRAWER) {
-        PermanentNavigationDrawer(drawerContent = {
-            PermanentDrawerSheet (
-                Modifier.width(dimensionResource(R.dimen.drawer_width))
-            ) {
-                NavigationDrawerContent(
-                    selectedDestination = navController.currentDestination,
-                    onTabPressed = { node: String -> navController.navigate(node) },
-                    modifier = Modifier
-                        .wrapContentWidth()
-                        .fillMaxHeight()
-                        .background(MaterialTheme.colorScheme.inverseOnSurface)
-                        .padding(dimensionResource(R.dimen.drawer_padding_content)),
-                )
-            }
-        }) {
-
-            Scaffold(
-                topBar = {
-                    TrainTopAppBar(
-                        currentScreen = currentScreen,
-                        canNavigateBack = navController.previousBackStackEntry != null,
-                        navigateUp = {
-                            navController.popBackStack()
-                        }
+    when (navigationType) {
+        TrainAppNavigationType.PERMANENT_NAVIGATION_DRAWER -> {
+            PermanentNavigationDrawer(drawerContent = {
+                PermanentDrawerSheet (
+                    Modifier.width(dimensionResource(R.dimen.drawer_width))
+                ) {
+                    NavigationDrawerContent(
+                        selectedDestination = navController.currentDestination,
+                        onTabPressed = { node: String -> navController.navigate(node) },
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .fillMaxHeight()
+                            .background(MaterialTheme.colorScheme.inverseOnSurface)
+                            .padding(dimensionResource(R.dimen.drawer_padding_content)),
                     )
                 }
-            ) { innerPadding ->
-                navComponent(
-                    modifier = Modifier.padding(innerPadding),
-                    navController = navController
-                )
-            }
-        }
-    } else if (navigationType == TrainAppNavigationType.BOTTOM_NAVIGATION) {
-        Scaffold(
-            topBar = {
-                TrainTopAppBar(
-                    currentScreen = currentScreen,
-                    canNavigateBack = navController.previousBackStackEntry != null,
-                    navigateUp = {
-                        navController.popBackStack()
+            }) {
+
+                Scaffold(
+                    topBar = {
+                        TrainTopAppBar(
+                            currentScreen = currentScreen,
+                            canNavigateBack = navController.previousBackStackEntry != null,
+                            navigateUp = {
+                                navController.popBackStack()
+                            }
+                        )
                     }
-                )
-            },
-            bottomBar = {
-                TrainBottomAppBar(
-                    onTabPressed = { node: String -> navController.navigate(node) {
-                        launchSingleTop = true
-
-                        popUpTo(node) {
-                            inclusive = true
-                        }
-                    } },
-                )
+                ) { innerPadding ->
+                    NavComponent(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController
+                    )
+                }
             }
-        ) { innerPadding ->
-            navComponent(
-                modifier = Modifier.padding(innerPadding),
-                navController = navController
-            )
         }
-    } else {
-        Row {
-            AnimatedVisibility(visible = navigationType == TrainAppNavigationType.NAVIGATION_RAIL) {
-                TrainAppNavigationRail(
-                    selectedDestination = navController.currentDestination,
-                    onTabPressed = { node: String -> navController.navigate(node) },
-                )
-            }
+        TrainAppNavigationType.BOTTOM_NAVIGATION -> {
             Scaffold(
                 topBar = {
                     TrainTopAppBar(
@@ -124,12 +91,49 @@ fun TrainApp(
                             navController.popBackStack()
                         }
                     )
+                },
+                bottomBar = {
+                    TrainBottomAppBar(
+                        onTabPressed = { node: String -> navController.navigate(node) {
+                            launchSingleTop = true
+
+                            popUpTo(node) {
+                                inclusive = true
+                            }
+                        } },
+                    )
                 }
             ) { innerPadding ->
-                navComponent(
+                NavComponent(
                     modifier = Modifier.padding(innerPadding),
                     navController = navController
                 )
+            }
+        }
+        else -> {
+            Row {
+                AnimatedVisibility(visible = navigationType == TrainAppNavigationType.NAVIGATION_RAIL) {
+                    TrainAppNavigationRail(
+                        selectedDestination = navController.currentDestination,
+                        onTabPressed = { node: String -> navController.navigate(node) },
+                    )
+                }
+                Scaffold(
+                    topBar = {
+                        TrainTopAppBar(
+                            currentScreen = currentScreen,
+                            canNavigateBack = navController.previousBackStackEntry != null,
+                            navigateUp = {
+                                navController.popBackStack()
+                            }
+                        )
+                    }
+                ) { innerPadding ->
+                    NavComponent(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController
+                    )
+                }
             }
         }
     }

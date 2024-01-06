@@ -20,7 +20,7 @@ import org.junit.Test
 class StationsScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
-    lateinit var navController: TestNavHostController
+    private lateinit var navController: TestNavHostController
 
     @Before
     fun setupAppNavHost() {
