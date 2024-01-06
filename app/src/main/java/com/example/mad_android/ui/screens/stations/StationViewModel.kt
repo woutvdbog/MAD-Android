@@ -45,7 +45,6 @@ class StationViewModel(
     private val stationRepository: StationRepository
 ) : ViewModel() {
     private var _uiState : StationUiState by mutableStateOf(StationUiState.Loading)
-        private set
 
     val stationUiState : StationUiState
         get() = _uiState

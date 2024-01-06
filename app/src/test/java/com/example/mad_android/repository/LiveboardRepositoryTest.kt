@@ -25,7 +25,7 @@ class LiveboardRepositoryTest {
     private lateinit var liveboardApiService: LiveboardApiService
     private lateinit var cachingLiveboardRepository: CachingLiveboardRepository
 
-    val mockDbLiveboard = dbLiveboard(
+    private val mockDbLiveboard = dbLiveboard(
         "1.2",
         "1704315149",
         "Ghent-Sint-Pieters",

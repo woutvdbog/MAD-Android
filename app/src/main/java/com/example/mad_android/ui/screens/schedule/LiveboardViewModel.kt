@@ -67,7 +67,6 @@ class LiveboardViewModel(
     private val liveboardRepository: LiveboardRepository
 ) : ViewModel() {
     private var _uiState : LiveboardUiState = LiveboardUiState.Loading
-        private set
 
     val liveboardUiState : LiveboardUiState
         get() = _uiState
@@ -75,7 +74,6 @@ class LiveboardViewModel(
     lateinit var uiListState : StateFlow<LiveboardState>
 
     var isRefreshing by mutableStateOf(false)
-        private set
 
     /**
      * Initializes the ViewModel and triggers the retrieval of Liveboard information.
@@ -137,9 +135,7 @@ class LiveboardViewModel(
 
     companion object {
         private var Instance: LiveboardViewModel? = null
-        val Factory: ViewModelProvider.Factory = viewModelFactory(
-
-        ) {
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 if(Instance == null) {
                     val application = (this[APPLICATION_KEY] as TrainApplication)

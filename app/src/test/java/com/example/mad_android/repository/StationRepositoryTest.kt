@@ -20,7 +20,7 @@ class StationRepositoryTest {
     private lateinit var stationApiService: StationApiService
     private lateinit var cachingStationRepository: CachingStationRepository
 
-    val mockDbStations =
+    private val mockDbStations =
         dbStation("1", "1", listOf(
             dbStationObject("1", "1", "1", "TestStation", "1", "1"),
             dbStationObject("2", "2", "2", "TestStation2", "2", "2")

@@ -94,7 +94,7 @@ class LiveboardViewModelTest {
         assert(liveboardViewModel.liveboardUiState is LiveboardUiState.Error)
     }
 
-    fun mockLiveboard(): Liveboard {
+    private fun mockLiveboard(): Liveboard {
         return Liveboard(
             "1.2",
             "1704315149",
@@ -109,7 +109,7 @@ class LiveboardViewModelTest {
             ),
             Departures(
                 1,
-                List<Departure>(
+                List(
                     1
                 ) {
                     Departure(

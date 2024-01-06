@@ -37,7 +37,6 @@ class FavouriteViewModel(
 ) : ViewModel() {
 
     private var _uiState : FavouriteUiState by mutableStateOf(FavouriteUiState.Loading)
-        private set
     val uiState : FavouriteUiState get() = _uiState
 
     private val _favourites = MutableStateFlow<List<Favourite>>(emptyList())
@@ -62,6 +61,8 @@ class FavouriteViewModel(
                 favouriteRepository.getFavourites().collect {
                     _favourites.value = it
                 }
+                
+                _favourites.value = _favourites.value.sortedBy { it.standardname }
 
                 _uiState = FavouriteUiState.Success(favourites.value)
 

@@ -18,7 +18,7 @@ class FavouriteScreenTest {
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
-    lateinit var favouriteViewModel: FavouriteViewModel
+    private lateinit var favouriteViewModel: FavouriteViewModel
 
     @Before
     fun setUp() {

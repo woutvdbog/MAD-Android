@@ -42,7 +42,7 @@ class LiveboardDaoTest {
         ),
         Departures(
             1,
-            List<Departure>(
+            List(
                 1
             ) {
                 Departure(
