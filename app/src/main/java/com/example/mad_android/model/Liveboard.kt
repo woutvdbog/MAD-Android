@@ -17,15 +17,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Liveboard(
     @SerialName(value = "version")
-    var version: String,
+    var version: String = "",
     @SerialName(value = "timestamp")
-    var timestamp: String,
+    var timestamp: String = "",
     @SerialName(value = "station")
-    var station: String,
+    var station: String = "",
     @SerialName(value = "stationinfo")
-    var stationinfo: StationObject,
+    var stationinfo: StationObject = StationObject(),
     @SerialName(value = "departures")
-    var departures: Departures
+    var departures: Departures = Departures()
 )
 
 /**
@@ -39,9 +39,9 @@ data class Liveboard(
 @Serializable
 data class Departures(
     @SerialName(value = "number")
-    var number: Int,
+    var number: Int = 0,
     @SerialName(value = "departure")
-    var departure: List<Departure>
+    var departure: List<Departure> = listOf()
 )
 
 /**
@@ -66,31 +66,31 @@ data class Departures(
 @Serializable
 data class Departure(
     @SerialName(value = "id")
-    var id: Int,
+    var id: Int = 0,
     @SerialName(value = "delay")
-    var delay: Int,
+    var delay: Int = 0,
     @SerialName(value = "station")
-    var station: String,
+    var station: String = "",
     @SerialName(value = "stationinfo")
-    var stationinfo: StationObject,
+    var stationinfo: StationObject = StationObject(),
     @SerialName(value = "time")
-    var time: String,
+    var time: String = "",
     @SerialName(value = "vehicle")
-    var vehicle: String,
+    var vehicle: String = "",
     @SerialName(value = "vehicleinfo")
-    var vehicleinfo: Vehicle,
+    var vehicleinfo: Vehicle = Vehicle(),
     @SerialName(value = "platform")
-    var platform: String,
+    var platform: String = "",
     @SerialName(value = "platforminfo")
-    var platforminfo: Platform,
+    var platforminfo: Platform = Platform(),
     @SerialName(value = "canceled")
-    var canceled: Int,
+    var canceled: Int = 0,
     @SerialName(value = "left")
-    var left: Int,
+    var left: Int = 0,
     @SerialName(value = "isExtra")
-    var isExtra: Int,
+    var isExtra: Int = 0,
     @SerialName(value = "departureConnection")
-    var departureConnection: String
+    var departureConnection: String = ""
 )
 
 
@@ -105,9 +105,9 @@ data class Departure(
 @Serializable
 data class Platform(
     @SerialName(value = "name")
-    var name: String,
+    var name: String = "",
     @SerialName(value = "normal")
-    var normal: String
+    var normal: String = ""
 )
 
 /**
@@ -126,17 +126,17 @@ data class Platform(
 @Serializable
 data class Vehicle(
     @SerialName(value = "name")
-    var name: String,
+    var name: String = "",
     @SerialName(value = "shortname")
-    var shortname: String,
+    var shortname: String = "",
     @SerialName(value = "number")
-    var number: Int,
+    var number: Int = 0,
     @SerialName(value = "type")
-    var type: String,
+    var type: String = "",
     @SerialName(value = "locationX")
-    var locationX: String,
+    var locationX: String = "",
     @SerialName(value = "locationY")
-    var locationY: String,
+    var locationY: String = "",
     @SerialName(value = "@id")
-    var link: String
+    var link: String = ""
 )

@@ -89,6 +89,8 @@ class LiveboardViewModelTest {
 
         val liveboardViewModel = LiveboardViewModel(liveboardRepository)
 
+        liveboardViewModel.getLiveboard("BE.NMBS.008892007")
+
         assert(liveboardViewModel.liveboardUiState is LiveboardUiState.Error)
     }
 

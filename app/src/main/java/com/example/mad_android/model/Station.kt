@@ -15,11 +15,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Station(
     @SerialName(value = "version")
-    var version: String,
+    var version: String = "",
     @SerialName(value = "timestamp")
-    var timestamp: String,
+    var timestamp: String = "",
     @SerialName(value = "station")
-    var station: List<StationObject>
+    var station: List<StationObject> = listOf()
 )
 
 /**
@@ -37,15 +37,15 @@ data class Station(
 @Serializable
 data class StationObject(
     @SerialName(value = "locationX")
-    var locationX: String,
+    var locationX: String = "",
     @SerialName(value = "locationY")
-    var locationY: String,
+    var locationY: String = "",
     @SerialName(value = "id")
-    var id: String,
+    var id: String = "",
     @SerialName(value = "name")
-    var name: String,
+    var name: String = "",
     @SerialName(value = "@id")
-    var link: String,
+    var link: String = "",
     @SerialName(value = "standardname")
-    var standardname: String
+    var standardname: String = ""
 )

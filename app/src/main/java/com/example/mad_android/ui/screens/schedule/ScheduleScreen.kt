@@ -67,7 +67,7 @@ fun ScheduleScreen(
         }
     }
 
-    LaunchedEffect(true) {
+    LaunchedEffect(key1 = station) {
         liveboardViewModel.getLiveboard(station!!)
     }
 }
@@ -82,7 +82,7 @@ fun ScheduleScreen(
 @Composable
 fun ScheduleScreenComponent(
     modifier: Modifier = Modifier,
-    liveboardViewModel: LiveboardViewModel = viewModel(factory = LiveboardViewModel.Factory),
+    liveboardViewModel: LiveboardViewModel,
     station : String?
 ) {
     val liveboardListState = liveboardViewModel.uiListState.collectAsState()

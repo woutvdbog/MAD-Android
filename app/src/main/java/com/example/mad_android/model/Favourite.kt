@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class Favourite(
-    val id: String,
-    val name: String,
-    val standardname: String
+    val id: String = "",
+    val name: String = "",
+    val standardname: String = ""
 )
