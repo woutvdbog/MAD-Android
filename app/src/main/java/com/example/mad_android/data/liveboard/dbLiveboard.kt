@@ -3,10 +3,12 @@ package com.example.mad_android.data.liveboard
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.mad_android.data.station.dbStationObject
+import com.example.mad_android.model.Departure
 import com.example.mad_android.model.Departures
 import com.example.mad_android.model.Liveboard
 import com.example.mad_android.model.Platform
 import com.example.mad_android.model.StationObject
+import com.example.mad_android.model.Vehicle
 
 /**
  * Database entity representing liveboard information stored in the local Room database.
@@ -63,7 +65,7 @@ data class dbDeparture(
     val vehicle: String,
     val vehicleinfo: dbVehicle,
     val platform: String,
-    val platforminfo: Platform,
+    val platforminfo: dbPlatform,
     val canceled: Int,
     val left: Int,
     val isExtra: Int,
@@ -90,6 +92,41 @@ data class dbVehicle(
     var locationY: String,
     var link: String
 )
+
+/**
+ * Data class representing platform information stored in the local Room database.
+ *
+ * @property name Name of the platform.
+ * @property normal Normal information about the platform.
+ */
+data class dbPlatform(
+    var name: String,
+    var normal: String
+)
+
+/**
+ * Extension function to convert a [dbPlatform] object to a [Platform] domain object.
+ *
+ * @return Converted [Platform] domain object.
+ */
+fun dbPlatform.asDomainPlatform(): Platform {
+    return Platform(
+        name = name,
+        normal = normal
+    )
+}
+
+/**
+ * Extension function to convert a [Platform] domain object to a [dbPlatform] object.
+ *
+ * @return Converted [dbPlatform] object.
+ */
+fun Platform.asDbPlatform(): dbPlatform {
+    return dbPlatform(
+        name = name,
+        normal = normal
+    )
+}
 
 /**
  * Converts a [dbLiveboard] object to a [Liveboard] domain object.
@@ -125,8 +162,8 @@ fun dbDepartures.asDomainDepartures(): Departures {
  *
  * @return Converted [Departure] domain object.
  */
-fun dbDeparture.asDomainDeparture(): com.example.mad_android.model.Departure {
-    return com.example.mad_android.model.Departure(
+fun dbDeparture.asDomainDeparture(): Departure {
+    return Departure(
         id = id,
         delay = delay,
         station = station,
@@ -135,7 +172,7 @@ fun dbDeparture.asDomainDeparture(): com.example.mad_android.model.Departure {
         vehicle = vehicle,
         vehicleinfo = vehicleinfo.asDomainVehicle(),
         platform = platform,
-        platforminfo = platforminfo,
+        platforminfo = platforminfo.asDomainPlatform(),
         canceled = canceled,
         left = left,
         isExtra = isExtra,
@@ -149,8 +186,8 @@ fun dbDeparture.asDomainDeparture(): com.example.mad_android.model.Departure {
  *
  * @return Converted [Vehicle] domain object.
  */
-fun dbVehicle.asDomainVehicle(): com.example.mad_android.model.Vehicle {
-    return com.example.mad_android.model.Vehicle(
+fun dbVehicle.asDomainVehicle(): Vehicle {
+    return Vehicle(
         name = name,
         shortname = shortname,
         number = number,
@@ -211,7 +248,7 @@ fun Departures.asDbDepartures(): dbDepartures {
  *
  * @return Converted [dbDeparture] object for database storage.
  */
-fun com.example.mad_android.model.Departure.asDbDeparture(): dbDeparture {
+fun Departure.asDbDeparture(): dbDeparture {
     return dbDeparture(
         id = id,
         delay = delay,
@@ -221,7 +258,7 @@ fun com.example.mad_android.model.Departure.asDbDeparture(): dbDeparture {
         vehicle = vehicle,
         vehicleinfo = vehicleinfo.asDbVehicle(),
         platform = platform,
-        platforminfo = platforminfo,
+        platforminfo = platforminfo.asDbPlatform(),
         canceled = canceled,
         left = left,
         isExtra = isExtra,
@@ -234,7 +271,7 @@ fun com.example.mad_android.model.Departure.asDbDeparture(): dbDeparture {
  *
  * @return Converted [dbVehicle] object for database storage.
  */
-fun com.example.mad_android.model.Vehicle.asDbVehicle(): dbVehicle {
+fun Vehicle.asDbVehicle(): dbVehicle {
     return dbVehicle(
         name = name,
         shortname = shortname,

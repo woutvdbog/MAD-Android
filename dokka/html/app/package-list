@@ -26,11 +26,13 @@ $dokka.location:com.example.mad_android.data.liveboard////PointingToDeclaration/
 $dokka.location:com.example.mad_android.data.liveboard//asDbDeparture/com.example.mad_android.model.Departure#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-db-departure.html
 $dokka.location:com.example.mad_android.data.liveboard//asDbDepartures/com.example.mad_android.model.Departures#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-db-departures.html
 $dokka.location:com.example.mad_android.data.liveboard//asDbLiveboard/com.example.mad_android.model.Liveboard#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-db-liveboard.html
+$dokka.location:com.example.mad_android.data.liveboard//asDbPlatform/com.example.mad_android.model.Platform#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-db-platform.html
 $dokka.location:com.example.mad_android.data.liveboard//asDbStationObject/com.example.mad_android.model.StationObject#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-db-station-object.html
 $dokka.location:com.example.mad_android.data.liveboard//asDbVehicle/com.example.mad_android.model.Vehicle#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-db-vehicle.html
 $dokka.location:com.example.mad_android.data.liveboard//asDomainDeparture/com.example.mad_android.data.liveboard.dbDeparture#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-domain-departure.html
 $dokka.location:com.example.mad_android.data.liveboard//asDomainDepartures/com.example.mad_android.data.liveboard.dbDepartures#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-domain-departures.html
 $dokka.location:com.example.mad_android.data.liveboard//asDomainLiveboard/com.example.mad_android.data.liveboard.dbLiveboard#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-domain-liveboard.html
+$dokka.location:com.example.mad_android.data.liveboard//asDomainPlatform/com.example.mad_android.data.liveboard.dbPlatform#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-domain-platform.html
 $dokka.location:com.example.mad_android.data.liveboard//asDomainStationObject/com.example.mad_android.data.station.dbStationObject#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-domain-station-object.html
 $dokka.location:com.example.mad_android.data.liveboard//asDomainVehicle/com.example.mad_android.data.liveboard.dbVehicle#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/as-domain-vehicle.html
 $dokka.location:com.example.mad_android.data.liveboard/CachingLiveboardRepository///PointingToDeclaration/app/com.example.mad_android.data.liveboard/-caching-liveboard-repository/index.html
@@ -47,7 +49,7 @@ $dokka.location:com.example.mad_android.data.liveboard/LiveboardRepository/getLi
 $dokka.location:com.example.mad_android.data.liveboard/LiveboardRepository/refresh/#kotlin.String/PointingToDeclaration/app/com.example.mad_android.data.liveboard/-liveboard-repository/refresh.html
 $dokka.location:com.example.mad_android.data.liveboard/dbDeparture///PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/index.html
 $dokka.location:com.example.mad_android.data.liveboard/dbDeparture/canceled/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/canceled.html
-$dokka.location:com.example.mad_android.data.liveboard/dbDeparture/dbDeparture/#kotlin.Int#kotlin.Int#kotlin.String#com.example.mad_android.data.station.dbStationObject#kotlin.String#kotlin.String#com.example.mad_android.data.liveboard.dbVehicle#kotlin.String#com.example.mad_android.model.Platform#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/db-departure.html
+$dokka.location:com.example.mad_android.data.liveboard/dbDeparture/dbDeparture/#kotlin.Int#kotlin.Int#kotlin.String#com.example.mad_android.data.station.dbStationObject#kotlin.String#kotlin.String#com.example.mad_android.data.liveboard.dbVehicle#kotlin.String#com.example.mad_android.data.liveboard.dbPlatform#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/db-departure.html
 $dokka.location:com.example.mad_android.data.liveboard/dbDeparture/delay/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/delay.html
 $dokka.location:com.example.mad_android.data.liveboard/dbDeparture/departureConnection/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/departure-connection.html
 $dokka.location:com.example.mad_android.data.liveboard/dbDeparture/id/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-departure/id.html
@@ -71,6 +73,10 @@ $dokka.location:com.example.mad_android.data.liveboard/dbLiveboard/station/#/Poi
 $dokka.location:com.example.mad_android.data.liveboard/dbLiveboard/stationinfo/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-liveboard/stationinfo.html
 $dokka.location:com.example.mad_android.data.liveboard/dbLiveboard/timestamp/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-liveboard/timestamp.html
 $dokka.location:com.example.mad_android.data.liveboard/dbLiveboard/version/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-liveboard/version.html
+$dokka.location:com.example.mad_android.data.liveboard/dbPlatform///PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-platform/index.html
+$dokka.location:com.example.mad_android.data.liveboard/dbPlatform/dbPlatform/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-platform/db-platform.html
+$dokka.location:com.example.mad_android.data.liveboard/dbPlatform/name/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-platform/name.html
+$dokka.location:com.example.mad_android.data.liveboard/dbPlatform/normal/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-platform/normal.html
 $dokka.location:com.example.mad_android.data.liveboard/dbVehicle///PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-vehicle/index.html
 $dokka.location:com.example.mad_android.data.liveboard/dbVehicle/dbVehicle/#kotlin.String#kotlin.String#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-vehicle/db-vehicle.html
 $dokka.location:com.example.mad_android.data.liveboard/dbVehicle/link/#/PointingToDeclaration/app/com.example.mad_android.data.liveboard/db-vehicle/link.html

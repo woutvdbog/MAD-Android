@@ -6,9 +6,9 @@ import com.example.mad_android.data.liveboard.asDomainLiveboard
 import com.example.mad_android.data.liveboard.dbDeparture
 import com.example.mad_android.data.liveboard.dbDepartures
 import com.example.mad_android.data.liveboard.dbLiveboard
+import com.example.mad_android.data.liveboard.dbPlatform
 import com.example.mad_android.data.liveboard.dbVehicle
 import com.example.mad_android.data.station.dbStationObject
-import com.example.mad_android.model.Platform
 import com.example.mad_android.network.LiveboardApiService
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
@@ -66,7 +66,7 @@ class LiveboardRepositoryTest {
                         "http://irail.be/vehicle/IC3020"
                     ),
                     "7",
-                    Platform(
+                    dbPlatform(
                         "7",
                         "7",
                     ),
