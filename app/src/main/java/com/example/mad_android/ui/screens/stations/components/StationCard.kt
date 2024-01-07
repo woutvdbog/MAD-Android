@@ -11,8 +11,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -96,6 +98,10 @@ fun StationCard(
                         modifier = Modifier
                             .weight(0.8f)
                             .padding(4.dp),
+                        colors = ButtonDefaults.textButtonColors(
+                            contentColor = MaterialTheme.colorScheme.primary,
+                            containerColor = MaterialTheme.colorScheme.primaryContainer
+                        ),
                         onClick = {
                             onStationSelected(station.id)
                         }
@@ -110,6 +116,10 @@ fun StationCard(
                             .weight(0.2f)
                             .testTag("StationFavouriteButton")
                             .padding(4.dp),
+                        colors = ButtonDefaults.textButtonColors(
+                            contentColor = MaterialTheme.colorScheme.primaryContainer,
+                            containerColor = MaterialTheme.colorScheme.primary
+                        ),
                         onClick = {
                             if(isFavourite) {
                                 favouriteViewModel.removeFavourite(favourite!!)
