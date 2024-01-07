@@ -89,8 +89,8 @@ class LiveboardViewModel(
      */
     fun getLiveboard(station: String) {
             viewModelScope.launch {
+                _uiState = LiveboardUiState.Loading
                 try {
-                    _uiState = LiveboardUiState.Loading
                     liveboardRepository.refresh(station)
 
                     val liveboardResult = liveboardRepository.getLiveboard(station)

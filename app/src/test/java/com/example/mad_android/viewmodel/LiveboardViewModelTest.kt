@@ -44,7 +44,7 @@ class LiveboardViewModelTest {
     }
 
     @Test
-    fun getLiveboard_Success() = runBlocking {
+    fun getLiveboard_success() = runBlocking {
         `when`(liveboardRepository.refresh("BE.NMBS.008892007")).thenReturn(Unit)
         `when`(liveboardRepository.getLiveboard("BE.NMBS.008892007")).thenReturn(
             flowOf(
@@ -60,7 +60,6 @@ class LiveboardViewModelTest {
 
         verify(liveboardRepository).getLiveboard("BE.NMBS.008892007")
 
-        println(liveboardViewModel.liveboardUiState)
         assert(liveboardViewModel.liveboardUiState is LiveboardUiState.Success)
     }
 
@@ -81,12 +80,11 @@ class LiveboardViewModelTest {
 
         verify(liveboardRepository).getLiveboard("BE.NMBS.008892008")
 
-        println(liveboardViewModel.liveboardUiState)
         assert(liveboardViewModel.liveboardUiState is LiveboardUiState.Error)
     }
 
     @Test
-    fun getLiveboard_Error(): Unit = runTest {
+    fun getLiveboard_error(): Unit = runTest {
         `when`(liveboardRepository.getLiveboard("BE.NMBS.008892007")).thenThrow(RuntimeException("Test exception"))
 
         val liveboardViewModel = LiveboardViewModel(liveboardRepository)
