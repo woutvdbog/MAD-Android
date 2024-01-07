@@ -35,7 +35,7 @@ sealed interface StationUiState {
  * Data class representing the state of the Station.
  * @property station Station object containing station information.
  */
-data class StationState(val station: Station = Station("","", emptyList()))
+data class StationState(val station: Station = Station())
 
 /**
  * ViewModel for the Station screen.

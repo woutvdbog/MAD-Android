@@ -2,7 +2,6 @@ $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.mad_android.data.favourite////PointingToDeclaration/app/com.example.mad_android.data.favourite/index.html
 $dokka.location:com.example.mad_android.data.favourite//asDatabaseFavourite/com.example.mad_android.model.Favourite#/PointingToDeclaration/app/com.example.mad_android.data.favourite/as-database-favourite.html
-$dokka.location:com.example.mad_android.data.favourite//asDatabaseFavouriteList/kotlin.collections.List[com.example.mad_android.model.Favourite]#/PointingToDeclaration/app/com.example.mad_android.data.favourite/as-database-favourite-list.html
 $dokka.location:com.example.mad_android.data.favourite//asDomainFavourite/com.example.mad_android.data.favourite.dbFavourite#/PointingToDeclaration/app/com.example.mad_android.data.favourite/as-domain-favourite.html
 $dokka.location:com.example.mad_android.data.favourite//asDomainFavouriteList/kotlin.collections.List[com.example.mad_android.data.favourite.dbFavourite]#/PointingToDeclaration/app/com.example.mad_android.data.favourite/as-domain-favourite-list.html
 $dokka.location:com.example.mad_android.data.favourite/CachingFavouriteRepository///PointingToDeclaration/app/com.example.mad_android.data.favourite/-caching-favourite-repository/index.html
@@ -193,7 +192,7 @@ $dokka.location:com.example.mad_android.model/Vehicle/number/#/PointingToDeclara
 $dokka.location:com.example.mad_android.model/Vehicle/shortname/#/PointingToDeclaration/app/com.example.mad_android.model/-vehicle/shortname.html
 $dokka.location:com.example.mad_android.model/Vehicle/type/#/PointingToDeclaration/app/com.example.mad_android.model/-vehicle/type.html
 $dokka.location:com.example.mad_android.navigation////PointingToDeclaration/app/com.example.mad_android.navigation/index.html
-$dokka.location:com.example.mad_android.navigation//navComponent/#androidx.navigation.NavHostController#androidx.compose.ui.Modifier/PointingToDeclaration/app/com.example.mad_android.navigation/nav-component.html
+$dokka.location:com.example.mad_android.navigation//NavComponent/#androidx.navigation.NavHostController#androidx.compose.ui.Modifier/PointingToDeclaration/app/com.example.mad_android.navigation/-nav-component.html
 $dokka.location:com.example.mad_android.navigation/NavItems.Favourites///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.mad_android.navigation/-nav-items/-favourites/index.html
 $dokka.location:com.example.mad_android.navigation/NavItems.Start///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.mad_android.navigation/-nav-items/-start/index.html
 $dokka.location:com.example.mad_android.navigation/NavItems///PointingToDeclaration/app/com.example.mad_android.navigation/-nav-items/index.html
@@ -211,7 +210,6 @@ $dokka.location:com.example.mad_android.navigation/Screens/title/#/PointingToDec
 $dokka.location:com.example.mad_android.navigation/Screens/valueOf/#kotlin.String/PointingToDeclaration/app/com.example.mad_android.navigation/-screens/value-of.html
 $dokka.location:com.example.mad_android.navigation/Screens/values/#/PointingToDeclaration/app/com.example.mad_android.navigation/-screens/values.html
 $dokka.location:com.example.mad_android.network////PointingToDeclaration/app/com.example.mad_android.network/index.html
-$dokka.location:com.example.mad_android.network//getStationsAsFlow/com.example.mad_android.network.StationApiService#/PointingToDeclaration/app/com.example.mad_android.network/get-stations-as-flow.html
 $dokka.location:com.example.mad_android.network/LiveboardApiService///PointingToDeclaration/app/com.example.mad_android.network/-liveboard-api-service/index.html
 $dokka.location:com.example.mad_android.network/LiveboardApiService/getLiveboard/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.mad_android.network/-liveboard-api-service/get-liveboard.html
 $dokka.location:com.example.mad_android.network/StationApiService///PointingToDeclaration/app/com.example.mad_android.network/-station-api-service/index.html
@@ -296,12 +294,14 @@ $dokka.location:com.example.mad_android.ui.screens.stations/StationViewModel/sea
 $dokka.location:com.example.mad_android.ui.screens.stations/StationViewModel/stationUiState/#/PointingToDeclaration/app/com.example.mad_android.ui.screens.stations/-station-view-model/station-ui-state.html
 $dokka.location:com.example.mad_android.ui.screens.stations/StationViewModel/uiListState/#/PointingToDeclaration/app/com.example.mad_android.ui.screens.stations/-station-view-model/ui-list-state.html
 $dokka.location:com.example.mad_android.ui.theme////PointingToDeclaration/app/com.example.mad_android.ui.theme/index.html
-$dokka.location:com.example.mad_android.ui.theme//Pink40/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-pink40.html
-$dokka.location:com.example.mad_android.ui.theme//Pink80/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-pink80.html
-$dokka.location:com.example.mad_android.ui.theme//Purple40/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-purple40.html
-$dokka.location:com.example.mad_android.ui.theme//Purple80/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-purple80.html
-$dokka.location:com.example.mad_android.ui.theme//PurpleGrey40/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-purple-grey40.html
-$dokka.location:com.example.mad_android.ui.theme//PurpleGrey80/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-purple-grey80.html
+$dokka.location:com.example.mad_android.ui.theme//DarkBlue80/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-dark-blue80.html
+$dokka.location:com.example.mad_android.ui.theme//DarkBlueGrey80/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-dark-blue-grey80.html
+$dokka.location:com.example.mad_android.ui.theme//DarkPrimaryContainer/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-dark-primary-container.html
+$dokka.location:com.example.mad_android.ui.theme//DarkTurquoise80/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-dark-turquoise80.html
+$dokka.location:com.example.mad_android.ui.theme//LightBlue40/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-light-blue40.html
+$dokka.location:com.example.mad_android.ui.theme//LightBlueGrey40/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-light-blue-grey40.html
+$dokka.location:com.example.mad_android.ui.theme//LightPrimaryContainer/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-light-primary-container.html
+$dokka.location:com.example.mad_android.ui.theme//LightTurquoise40/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-light-turquoise40.html
 $dokka.location:com.example.mad_android.ui.theme//TrainAppTheme/#kotlin.Boolean#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.example.mad_android.ui.theme/-train-app-theme.html
 $dokka.location:com.example.mad_android.ui.theme//Typography/#/PointingToDeclaration/app/com.example.mad_android.ui.theme/-typography.html
 $dokka.location:com.example.mad_android.ui.util////PointingToDeclaration/app/com.example.mad_android.ui.util/index.html

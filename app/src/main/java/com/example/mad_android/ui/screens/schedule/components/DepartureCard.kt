@@ -173,6 +173,7 @@ fun TrainType(vehicle: Vehicle) {
 @Composable
 fun PlatformBox(platform: Platform) {
     val platformColor = if(platform.normal == "0") MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primaryContainer
+    val platformContentColor = if(platform.normal == "0") MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.primary
     Surface(
         modifier = Modifier
             .padding(4.dp)
@@ -184,7 +185,7 @@ fun PlatformBox(platform: Platform) {
             text = platform.name,
             modifier = Modifier
                 .padding(8.dp),
-            color = MaterialTheme.colorScheme.primary,
+            color = platformContentColor,
             textAlign = TextAlign.Center,
         )
     }

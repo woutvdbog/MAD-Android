@@ -12,9 +12,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.mad_android.TrainApplication
 import com.example.mad_android.data.liveboard.LiveboardRepository
-import com.example.mad_android.model.Departures
 import com.example.mad_android.model.Liveboard
-import com.example.mad_android.model.StationObject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
@@ -40,24 +38,7 @@ sealed interface LiveboardUiState {
  * Data class representing the state of the Liveboard.
  * @property liveboard Liveboard object containing schedule and departure information.
  */
-data class LiveboardState(
-    val liveboard: Liveboard = Liveboard(
-        "",
-        "",
-        "",
-        StationObject(
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-        ),
-        Departures(
-            0,
-            emptyList()
-        ),
-    ))
+data class LiveboardState(val liveboard: Liveboard = Liveboard())
 
 /**
  * ViewModel for the Liveboard screen.
@@ -74,13 +55,6 @@ class LiveboardViewModel(
     lateinit var uiListState : StateFlow<LiveboardState>
 
     var isRefreshing by mutableStateOf(false)
-
-    /**
-     * Initializes the ViewModel and triggers the retrieval of Liveboard information.
-     */
-    init {
-        getLiveboard("Gent-Sint-Pieters")
-    }
 
     /**
      * Retrieves the Liveboard information for the specified station.
