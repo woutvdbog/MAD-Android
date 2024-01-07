@@ -110,15 +110,12 @@ class StationViewModel(
     }
 
     companion object {
-        private var Instance: StationViewModel? = null
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                if(Instance == null) {
                     val application = (this[APPLICATION_KEY] as TrainApplication)
                     val stationRepository = application.container.stationRepository
-                    Instance = StationViewModel(stationRepository = stationRepository)
-                }
-                Instance!!
+
+               StationViewModel(stationRepository = stationRepository)
             }
         }
     }

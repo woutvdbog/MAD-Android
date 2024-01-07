@@ -93,15 +93,12 @@ class FavouriteViewModel(
     }
 
     companion object {
-        private var Instance: FavouriteViewModel? = null
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                if(Instance == null) {
                     val application = (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TrainApplication)
                     val favouriteRepository = application.container.favouriteRepository
-                    Instance = FavouriteViewModel(favouriteRepository = favouriteRepository)
-                }
-                Instance!!
+
+                FavouriteViewModel(favouriteRepository = favouriteRepository)
             }
         }
     }
